@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('pr.forms', []);
+angular.module('pr.forms', ['ui.select']);
