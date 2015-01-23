@@ -1,0 +1,7 @@
+<ng-transclude></ng-transclude>
+<div ng-messages="formItem.$error" ng-if="formItem.$invalid && (formItem.$dirty || form.$submitted)" class="ui-form-validation">
+  <i class="picon-warning"></i>
+  <div ng-message="required">Required</div>
+  <div ng-message="phone">Invalid phone number</div>
+  <div ng-message="zip">Invalid zip code</div>
+</div>
