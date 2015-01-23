@@ -1,5 +1,5 @@
 # installation
-Add `pr.forms` as a dependency to your app.
+Add `pr.forms` as a dependency to your app. Add all js and sass files to your index.html file.
 
 # requirements
 The datepicker directive requires the pickadate library and momentjs. Please install both. For pickadate use the classic theme.
