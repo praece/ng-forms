@@ -11,7 +11,7 @@ function(prValidate) {
       var validations = scope.$eval(attrs.prValidate);
 
       _.forEach(validations, function(validation){
-        prValidate[validation](ctrl);
+        prValidate[validation](scope, ctrl);
       });
     }
   };
@@ -25,7 +25,7 @@ function(prValidate) {
     require: '^ngModel',
     restrict: 'A',
     link: function (scope, element, attrs, ctrl) {
-      prValidate.required(ctrl);
+      prValidate.required(scope, ctrl);
     }
   };
 }]);
@@ -38,7 +38,7 @@ function(prValidate) {
 		require: '^ngModel',
 		restrict: 'A',
 		link:	function (scope, element, attrs, ctrl) {
-      prValidate.phone(ctrl);
+      prValidate.phone(scope, ctrl);
 		}
 	};
 }]);
@@ -51,7 +51,7 @@ function(prValidate) {
 		require: '^ngModel',
 		restrict: 'A',
 		link:	function (scope, element, attrs, ctrl) {
-      prValidate.zip(ctrl);
+      prValidate.zip(scope, ctrl);
 		}
 	};
 }]);
@@ -64,7 +64,7 @@ function(prValidate) {
     require: '^ngModel',
     restrict: 'A',
     link: function (scope, element, attrs, ctrl) {
-      prValidate.passwordConfirm(ctrl);
+      prValidate.passwordConfirm(scope, ctrl);
     }
   };
 }]);

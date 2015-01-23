@@ -5,7 +5,7 @@ angular.module('pr.forms').service('prValidate', [
 
 function ($filter){
   return {
-    required: function(ctrl) {
+    required: function(scope, ctrl) {
       ctrl.$formatters.unshift(function (modelValue) {
         if (!modelValue) {
           ctrl.$setValidity('required', false);
@@ -27,7 +27,7 @@ function ($filter){
       });
     },
 
-    phone: function(ctrl) {
+    phone: function(scope, ctrl) {
       ctrl.$formatters.unshift(function (modelValue) {
         return $filter('prPhone')(modelValue);
       });
@@ -51,7 +51,7 @@ function ($filter){
       });
     },
 
-    zip: function(ctrl) {
+    zip: function(scope, ctrl) {
       ctrl.$parsers.unshift(function (viewValue) {
         if (!viewValue) {
           ctrl.$setValidity('zip', true);
@@ -71,7 +71,7 @@ function ($filter){
       });
     },
 
-    passwordConfirmation: function(ctrl) {
+    passwordConfirmation: function(scope, ctrl) {
       ctrl.$parsers.unshift(function (viewValue) {
         var password = scope.user.data.password;
         var confirm = viewValue;
