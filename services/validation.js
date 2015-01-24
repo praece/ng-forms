@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pr.forms').service('prValidate', [
+angular.module('pr.forms').service('prValidateSrvc', [
   '$filter',
 
 function ($filter){
