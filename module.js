@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('pr.forms', ['ui.select']);
+angular.module('pr.forms', ['ui.select', 'ngMessages']);

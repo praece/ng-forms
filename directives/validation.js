@@ -1,70 +1,70 @@
 'use strict';
 
 angular.module('pr.forms').directive('prValidate', [
-  'prValidate',
+  'prValidateSrvc',
 
-function(prValidate) {
+function(prValidateSrvc) {
   return {
     require: '^ngModel',
     restrict: 'A',
     link: function (scope, element, attrs, ctrl) {
-      var validations = scope.$eval(attrs.prValidate);
+      var validations = scope.$eval(attrs.prValidateSrvc);
 
       _.forEach(validations, function(validation){
-        prValidate[validation](scope, ctrl);
+        prValidateSrvc[validation](scope, ctrl);
       });
     }
   };
 }]);
 
 angular.module('pr.forms').directive('prValidateRequired', [
-  'prValidate',
+  'prValidateSrvc',
 
-function(prValidate) {
+function(prValidateSrvc) {
   return {
     require: '^ngModel',
     restrict: 'A',
     link: function (scope, element, attrs, ctrl) {
-      prValidate.required(scope, ctrl);
+      prValidateSrvc.required(scope, ctrl);
     }
   };
 }]);
 
 angular.module('pr.forms').directive('prValidatePhone', [
-  'prValidate',
+  'prValidateSrvc',
 
-function(prValidate) {
+function(prValidateSrvc) {
   return {
 		require: '^ngModel',
 		restrict: 'A',
 		link:	function (scope, element, attrs, ctrl) {
-      prValidate.phone(scope, ctrl);
+      prValidateSrvc.phone(scope, ctrl);
 		}
 	};
 }]);
 
 angular.module('pr.forms').directive('prValidateZip', [
-  'prValidate',
+  'prValidateSrvc',
 
-function(prValidate) {
+function(prValidateSrvc) {
   return {
 		require: '^ngModel',
 		restrict: 'A',
 		link:	function (scope, element, attrs, ctrl) {
-      prValidate.zip(scope, ctrl);
+      prValidateSrvc.zip(scope, ctrl);
 		}
 	};
 }]);
 
 angular.module('pr.forms').directive('prValidatePasswordConfirm', [
-  'prValidate',
+  'prValidateSrvc',
 
-function(prValidate) {
+function(prValidateSrvc) {
   return {
     require: '^ngModel',
     restrict: 'A',
     link: function (scope, element, attrs, ctrl) {
-      prValidate.passwordConfirm(scope, ctrl);
+      prValidateSrvc.passwordConfirm(scope, ctrl);
     }
   };
 }]);

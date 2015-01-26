@@ -8,7 +8,7 @@ function() {
     require: '^^form',
     transclude: true,
     scope: {},
-    templateUrl: '/app/praece-modules/forms/partials/input.html',
+    templateUrl: '/app/ng-forms/partials/input.html',
     link: function(scope, element, attrs, form) {
       var input = element.find('input, select, .select2');
       var label = element.find('label');
