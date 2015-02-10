@@ -19,7 +19,7 @@ function() {
         return moment(modelValue).format('M/D/YY');
       });
       ctrl.$parsers.unshift(function(viewValue) {
-        return moment(viewValue);
+        return moment(viewValue).format('YYYY/MM/DD');
       });
     }
   };
