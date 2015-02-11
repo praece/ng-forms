@@ -68,3 +68,34 @@ function(prValidateSrvc) {
     }
   };
 }]);
+
+angular.module('pr.forms').directive('prValidateUnique',
+
+function($http, $q) {
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    link: function(scope, element, attr, ngModel) {
+
+      ngModel.$asyncValidators.unique = function(modelValue, viewValue) {
+        var params = {};
+        params[attr.name] = viewValue;
+
+        var deferred = $q.defer();
+        $http.get(attr.prValidateUnique, {params: params})
+        .success(function(data, status) {
+          if(data.length > 0) {
+            deferred.reject(data);
+          }
+          else {
+            deferred.resolve(data);
+          }
+        })
+        .error(function(data, status) {
+          console.log(status);
+        });
+        return deferred.promise;
+      }
+    }
+  };
+});
