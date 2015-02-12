@@ -88,8 +88,13 @@ function($compile, $templateCache, $filter, $http, $q) {
       } else {
         $http.get(scope.options.unique.url, {params: params})
           .success(function(data, status) {
-            if(data.length > 0) {
-              deferred.reject();
+            if (data.length > 0) {
+              if (data[0].id === scope.options.unique.id) {
+                deferred.resolve();
+              }
+              else {
+                deferred.reject();
+              }
             }
             else {
               deferred.resolve();
