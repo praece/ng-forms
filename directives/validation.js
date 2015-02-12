@@ -114,7 +114,7 @@ function($compile, $templateCache, $filter, $http, $q) {
     link: function (scope, element, attrs, form) {
       var input = element.find('input, select, .select2');
       var template = '' +
-        '<div ng-messages="input.$error" class="form-validation">' +
+        '<div ng-messages="input.$error" ng-if="input.$invalid && (input.$dirty || form.$submitted)" class="form-validation">' +
           '<i class="invalid-icon picon-warning"></i>' +
           '<div ng-message="required">Required</div>' +
           '<div ng-message="phone">Invalid phone number</div>' +
