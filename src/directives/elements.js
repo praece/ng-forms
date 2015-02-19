@@ -7,7 +7,7 @@ function() {
 
   return {
     restrict: 'A',
-    link: function(scope, element, attrs, form) {
+    link: function(scope, element, attrs) {
       count++;
 
       var input = element.find('input, select, textarea, .select2');

@@ -76,7 +76,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
       var params = {};
       var deferred = $q.defer();
 
-      params[scope.input.$name] = viewValue;
+      params[scope.options.unique.property] = viewValue;
 
       if (!viewValue) {
         deferred.resolve();
@@ -105,7 +105,6 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
   }
 
   return {
-    require: '^^form',
     restrict: 'A',
     scope: {
       validations: '=prValidate',
@@ -113,6 +112,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
     },
     link: function (scope, element, attrs, form) {
       var input;
+      var form;
       var template = '' +
         '<div ng-messages="input.$error" ng-if="input.$invalid && (input.$dirty || form.$submitted)" class="form-validation">' +
           '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">' + 
@@ -122,19 +122,21 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
           '<div ng-message="phone">Invalid phone number</div>' +
           '<div ng-message="zip">Invalid zip code</div>' +
           '<div ng-message="unique">This {{options.unique.label}} is taken</div>' +
-        '</div>';
-
-      
+        '</div>';      
 
       $timeout(function() {
         input = element.find('input, select, textarea, .select2');
+        form = element.closest('form');
         scope.input = angular.element(input).controller('ngModel');
-        scope.form = form;
-        element.append($compile(template)(scope));
+        scope.form = angular.element(input).controller('form');
 
-        _.forEach(scope.validations, function(validation){
-          validators[validation](scope);
-        });
+        if (scope.input && scope.form) {
+          element.append($compile(template)(scope));
+
+          _.forEach(scope.validations, function(validation){
+            validators[validation](scope);
+          });
+        }
       });
     }
   };
