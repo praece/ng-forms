@@ -1,0 +1,20 @@
+@import "bootstrap";
+
+body {
+	min-height: 1000px;
+}
+
+#billing-address {
+	#city {@include make-sm-column(5)};
+	#state {@include make-sm-column(3)};
+	#zip {@include make-sm-column(4)};
+}
+
+h2 {
+	border-bottom: 1px solid #555;
+	padding-bottom: 10px;
+
+	button {
+		float: right;
+	}
+}

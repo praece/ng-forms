@@ -1,0 +1,194 @@
+<!doctype html>
+<html class="no-js" ng-app="demo">
+  <head>
+    <meta charset="utf-8">
+    <title>Praece ngForms</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../bower_components/select2/select2.css" />
+    <link rel="stylesheet" href="../bower_components/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="../bower_components/pickadate/lib/themes/classic.css" />
+    <link rel="stylesheet" href="../bower_components/pickadate/lib/themes/classic.date.css" />
+    <link rel="stylesheet" href="../bower_components/pickadate/lib/themes/classic.time.css" />
+    <link rel="stylesheet" href="styles/app.css" />
+
+    <!-- build:css praece-ng-forms.css -->
+    <link rel="stylesheet" href="styles/forms.css" />
+    <!-- endbuild -->
+  </head>
+  <body>
+
+    <div ng-controller="demoCtrl as demo">
+      <form ng-submit="demo.submit()" novalidate name="form">
+
+        <h2>Contract Details</h2>
+        <div class="form-row">
+          <div class="form-column">
+            <div pr-input pr-validate="['required']">
+              <label>Account Number</label>
+              <input type="text" ng-model="demo.accountNumber">
+            </div>
+
+            <div pr-input pr-validate="['required']">
+              <label>Client</label>
+              <ui-select ng-model="demo.client" theme="select2">
+                <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices repeat="client.id as client in demo.clients | filter:$select.search">
+                  <div>{{client.name}}</div>
+                </ui-select-choices>
+              </ui-select>
+            </div>
+
+            <div class="form-row">
+              <div pr-input pr-validate="['required']">
+                <label>Start Date</label>
+                <input type="text" pr-date-picker ng-model="demo.startDate">
+              </div>
+
+              <div pr-input pr-validate="['required']">
+                <label>End Date</label>
+                <input type="text" pr-date-picker ng-model="demo.endDate">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div pr-input pr-validate="['required']">
+                <label>Preferred Day</label>
+                <ui-select ng-model="demo.day" theme="select2" search-enabled="false">
+                  <ui-select-match>{{$select.selected}}</ui-select-match>
+                  <ui-select-choices repeat="day as day in demo.days | filter:$select.search">
+                    <div>{{day}}</div>
+                  </ui-select-choices>
+                </ui-select>
+              </div>
+
+              <div pr-input pr-validate="['required']">
+                <label>Preferred Time</label>
+                <input type="text" pr-time-picker ng-model="demo.time">
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="form-column">
+            <div pr-input pr-validate="['required']">
+              <label>First Name</label>
+              <input type="text" ng-model="demo.name">
+            </div>
+            <div pr-input pr-validate="['required']">
+              <label>Last Name</label>
+              <input type="text" ng-model="demo.name">
+            </div>
+            <div pr-input pr-validate="['required']" >
+              <label>Service Address</label>
+              <input type="text" ng-model="demo.name">
+            </div>
+            <div class="form-row" id="billing-address">
+              <div pr-input pr-validate="['required']" id="city">
+                <label>City</label>
+                <input type="text" ng-model="demo.name">
+              </div>
+              <div pr-input pr-validate="['required']" id="state">
+                <label>State</label>
+                <input type="text" ng-model="demo.name">
+              </div>
+              <div pr-input pr-validate="['required']" id="zip">
+                <label>Zip</label>
+                <input type="text" ng-model="demo.name">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <h2>Service Details</h2>
+        <div class="form-row">
+          <div pr-input pr-validate="['required']">
+            <label>Notes</label>
+            <textarea ng-model="demo.notes" name="notes" rows="5"></textarea>
+          </div>
+          <div class="form-column">
+
+            <label>Which services are included?</label>
+            <div pr-input class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="demo.checkbox1">
+                Service A
+              </label>
+            </div>
+            <div pr-input class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="demo.checkbox2">
+                Service B
+              </label>
+            </div>
+
+            <label>Which product?</label>
+            <div pr-input class="radio">
+              <label>
+                <input type="radio" ng-model="demo.radio" value="A">
+                Product A.1
+              </label>
+            </div>
+            <div pr-input class="radio" pr-validate="['required']">
+              <label>
+                <input type="radio" ng-model="demo.radio" value="B">
+                Product A.2
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <h2>Contacts<button type="button" ng-click="demo.addContact()" class="btn btn-success">Add Contact</button></h2>
+        <div class="form-row">
+          <div class="form-column" ng-repeat="contact in demo.contacts">
+            <div class="form-row">
+              <div pr-input pr-validate="['required']">
+                <label>First Name</label>
+                <input type="text" ng-model="contact.firstName">
+              </div>
+              <div pr-input pr-validate="['required']">
+                <label>Last Name</label>
+                <input type="text" ng-model="contact.lastName">
+              </div>
+            </div>
+            <div pr-input pr-validate="['required']" >
+              <label>Email</label>
+              <input type="text" ng-model="contact.email">
+            </div>
+            <div pr-input pr-validate="['required']" >
+              <label>Phone</label>
+              <input type="text" ng-model="contact.phone">
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="form-actions">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="../bower_components/pickadate/lib/picker.js"></script>
+    <script src="../bower_components/pickadate/lib/picker.date.js"></script>
+    <script src="../bower_components/pickadate/lib/picker.time.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="app.js"></script>
+
+    <!-- build:js praece-ng-forms.js -->
+    <script src="module.js"></script>
+    <script src="directives/datepicker.js"></script>
+    <script src="directives/elements.js"></script>
+    <script src="directives/number-input.js"></script>
+    <script src="directives/validation.js"></script>
+    <script src="filters/formatters.js"></script>
+    <!-- endbuild -->
+
+  </body>
+</html>
