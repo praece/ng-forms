@@ -1,35 +1,31 @@
 # Installation
-Add `pr.forms` as a dependency to your app. Add all js and sass files to your index.html file.
+Run `bower install --save git@github.com:praece/ng-forms.git#master`<br>
+Add `pr.forms` as a dependency to your app
 
-# Requirements
-The validation directive requires the angular-messages module. Install using:
-```
-bower install --save angular-messages
-```
-
-The datepicker directive requires the pickadate library and momentjs. Please install both. For pickadate use the classic theme.
-```
-bower install --save pickadate
-bower install --save momentjs
-```
-Add pickadate and ui-select .css files to your index.html file:
+Add pickadate, ui-select, and select2 .css files to your index.html file:
 ```
 <link rel="stylesheet" href="../bower_components/pickadate/lib/themes/classic.css" />
 <link rel="stylesheet" href="../bower_components/pickadate/lib/themes/classic.date.css" />
 <link rel="stylesheet" href="../bower_components/pickadate/lib/themes/classic.time.css" />
 <link rel="stylesheet" href="../bower_components/angular-ui-select/dist/select.css" />
+<link rel="stylesheet" href="../bower_components/select2/select2.css" />
 ```
 
-The select theming applies to ui-select elements, if you want to use select2 through ui-select, download the ui-select library.
+Import the pr-forms scss directly in your scss file:
 ```
-bower install --save angular-ui-select
+@import praece-ng-forms;
+```
+
+Add the pr-forms include path to your sass config:
+```
+bower-components/praece-ng-form/dist
 ```
 
 #Example
 ```html
 <form>
-  <div pr-input>
-    <input ng-model="name" name="Name" pr-validate-required placeholder="Name">
+  <div pr-input pr-validate="['required','phone']">
+    <input type="text" ng-model="phone">
   </div>
 </form>
 ```
