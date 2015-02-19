@@ -1,0 +1,223 @@
+@import "bootstrap";
+
+// General form styling.
+form {
+	max-width: 1000px;
+	padding: 24px 32px;
+}
+
+.form-row {
+	@include make-row();
+
+	> .form-element, .form-column {
+		@include make-sm-column(6);
+	}
+}
+
+.form-element {
+	@extend .form-group;
+	position: relative;
+	margin-bottom: 30px;
+
+	&.checkbox, &.radio {
+		margin-bottom: 10px;
+	}
+}
+
+label {
+	display: block;
+	color: #555;
+	user-select: none;
+}
+
+input[type="text"] {
+	@extend .form-control;
+
+	&:active, &:focus {
+		outline: none;
+	}
+
+	&.ng-dirty.ng-invalid, .ng-submitted &.ng-invalid {
+		border-color: #c0392b;
+	}
+}
+
+select {
+	@extend .form-control;
+
+	&:active, &:focus {
+		outline: none;
+	}
+}
+
+textarea {
+	@extend .form-control;
+}
+
+.form-actions {
+	margin-top: 36px;
+
+	* {
+		float: right;
+	}
+}
+
+// Form validation
+.form-validation {
+	position: absolute;
+	color: #c0392b;
+	width: 100%;
+	font-size: 12px;
+  left: 0;
+  bottom: -20px;
+
+	svg {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 18px;
+		height: 18px;
+
+		* {
+      fill: #c0392b;
+    }
+	}
+
+	.form-row > .form-element & {
+  	padding: 0 15px;
+
+  	svg {
+  		margin-right: 15px;
+  	}
+  }
+}
+
+// Select2 styling
+.select2-container, .select2-drop {
+	width: 100%;
+}
+
+.select2-container {
+
+	.select2-choice {
+		@extend .form-control;
+		background: transparent;
+		line-height: 34px;
+		height: 34px;
+		margin: 0;
+		padding-top: 0;
+
+		.select2-arrow {
+			background: transparent;
+			border-left: 0;
+			width: 32px;
+
+			b {
+				border-color: #888 transparent transparent transparent;
+			  border-style: solid;
+			  border-width: 7px 5px 0 5px;
+			  background-image: none !important;
+			  height: 0;
+			  left: 50%;
+			  margin-left: -4px;
+			  margin-top: -2px;
+			  position: absolute;
+			  top: 50%;
+			  width: 0;
+			}
+		}
+	}
+
+	a {
+		text-decoration: none !important;
+	}
+
+	&.select2-container-active {
+		.select2-choice {
+			@extend .form-control:focus;
+		}
+
+		.select2-choice .select2-arrow b {
+			color: #000;
+		}
+	}
+
+	&.ng-dirty[class*="ng-invalid"], .ng-submitted &[class*="ng-invalid"] {
+		.select2-choice {
+			border-color: #c0392b;
+		}
+	}
+
+	&:hover {
+		.select2-choice .select2-arrow b {
+			color: #000;
+		}
+	}
+
+	&.select2-dropdown-open, &.select2-dropdown-open.select2-drop-above {
+		.select2-choice {
+			background: transparent;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		.select2-arrow b {
+			border-color: transparent transparent #888 transparent;
+	  	border-width: 0 5px 7px 5px;
+	  }
+	}
+}
+
+.select2-drop, .select2-drop.select2-drop-above {
+	border-width: 0 1px 1px 1px;
+	box-shadow: none;
+
+	.select2-results {
+		margin: 0;
+		padding: 0;
+
+		.select2-result-label {
+			padding: 6px 12px;
+		}
+
+		.select2-highlighted {
+			background-color: #f5f5f5;
+			color: #000;
+		}
+	}
+
+	.ui-select-choices-row:last-child {
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+
+	&.select2-drop-active {
+		border-color: #66afe9;
+		box-shadow: 0 4px 8px rgba(102, 175, 233, 0.6);
+	}
+
+	.select2-search {
+		padding-left: 0;
+		padding-right: 0;
+
+		input {
+			margin-top: 0;
+			border: 0;
+			border-bottom: 1px solid #ddd;
+			border-top: 1px solid #ddd;
+			border-radius: 0;
+			box-shadow: none !important;
+			background-image: none !important;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+

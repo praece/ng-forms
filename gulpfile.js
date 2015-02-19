@@ -3,6 +3,7 @@ var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 var sass				= require('gulp-sass');
 var useref      = require('gulp-useref');
+var rename      = require("gulp-rename");
 
 // browser-sync task for starting the server.
 gulp.task('browser-sync', function() {
@@ -14,7 +15,7 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('reload', function() {
-   reload();
+  reload();
 });
 
 gulp.task('styles', function() {
@@ -29,12 +30,19 @@ gulp.task('serve', ['styles', 'browser-sync'], function () {
   gulp.watch(['src/**/*.scss'], ['styles', 'reload']);
 });
 
-gulp.task('build', ['styles'], function() {
+gulp.task('sass', function() {
+  return gulp.src('src/styles/forms.scss')
+    .pipe(rename('praece-ng-forms.scss'))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('scripts', function() {
   var assets = useref.assets();
 
   return gulp.src('src/index.html')
     .pipe(assets)
-    // .pipe(assets.restore())
     .pipe(useref())
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('build', ['styles', 'sass', 'scripts']);
