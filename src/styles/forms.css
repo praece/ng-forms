@@ -4895,13 +4895,13 @@ button.close {
     display: table; }
   .form-row:after {
     clear: both; }
-  .form-row > .form-element, .form-row .form-column {
+  .form-row > .form-element, .form-row .form-block {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px; }
     @media (min-width: 768px) {
-      .form-row > .form-element, .form-row .form-column {
+      .form-row > .form-element, .form-row .form-block {
         float: left;
         width: 50%; } }
 

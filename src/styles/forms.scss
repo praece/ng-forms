@@ -4,7 +4,7 @@
 .form-row {
 	@include make-row();
 
-	> .form-element, .form-column {
+	> .form-element, .form-block {
 		@include make-sm-column(6);
 	}
 }
