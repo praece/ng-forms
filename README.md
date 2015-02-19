@@ -22,19 +22,19 @@ Include all javascript files:
 <script src="../bower_components/moment/moment.js"></script>
 <script src="../bower_components/angular-messages/angular-messages.js"></script>
 <script src="../bower_components/lodash/lodash.js"></script>
-<script src="../bower_components/praece-ng-forms/praece-ng-forms.js"></script>
+<script src="../bower_components/praece-ng-forms/dist/praece-ng-forms.js"></script>
 ```
 
 Import the pr-forms and bootstrap scss directly in your scss file:
 ```
-@import bootstrap
-@import praece-ng-forms;
+@import "bootstrap";
+@import "praece-ng-forms";
 ```
 
 Add the pr-forms and bootstrap paths to the include path of your sass config:
 ```
-bower_components/praece-ng-form/dist
-bower_components/bootstrap-sass/assets/stylesheets
+'bower_components/praece-ng-forms/dist'
+'bower_components/bootstrap-sass/assets/stylesheets'
 ```
 
 #Example
