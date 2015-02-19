@@ -4887,10 +4887,6 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-form {
-  max-width: 1000px;
-  padding: 24px 32px; }
-
 .form-row {
   margin-left: -15px;
   margin-right: -15px; }

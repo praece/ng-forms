@@ -1,11 +1,6 @@
 @import "bootstrap";
 
 // General form styling.
-form {
-	max-width: 1000px;
-	padding: 24px 32px;
-}
-
 .form-row {
 	@include make-row();
 
