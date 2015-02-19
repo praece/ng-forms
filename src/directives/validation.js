@@ -125,7 +125,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
         '</div>';      
 
       $timeout(function() {
-        input = element.find('input, select, textarea, .select2');
+        input = element.find('input, select, textarea, .select2').first();
         form = element.closest('form');
         scope.input = angular.element(input).controller('ngModel');
         scope.form = angular.element(input).controller('form');
