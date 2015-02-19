@@ -5,11 +5,11 @@
     <title>Praece ngForms</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="../bower_components/select2/select2.css" />
-    <link rel="stylesheet" href="../bower_components/angular-ui-select/dist/select.css" />
-    <link rel="stylesheet" href="../bower_components/pickadate/lib/themes/classic.css" />
-    <link rel="stylesheet" href="../bower_components/pickadate/lib/themes/classic.date.css" />
-    <link rel="stylesheet" href="../bower_components/pickadate/lib/themes/classic.time.css" />
+    <link rel="stylesheet" href="/bower_components/select2/select2.css" />
+    <link rel="stylesheet" href="/bower_components/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="/bower_components/pickadate/lib/themes/classic.css" />
+    <link rel="stylesheet" href="/bower_components/pickadate/lib/themes/classic.date.css" />
+    <link rel="stylesheet" href="/bower_components/pickadate/lib/themes/classic.time.css" />
     <link rel="stylesheet" href="styles/app.css" />
     <link rel="stylesheet" href="styles/forms.css" />
   </head>
@@ -20,7 +20,7 @@
 
         <h2>Contract Details</h2>
         <div class="form-row">
-          <div class="form-column">
+          <div class="form-block">
             <div pr-input pr-validate="['required']">
               <label>Account Number</label>
               <input type="text" ng-model="demo.accountNumber">
@@ -68,7 +68,7 @@
 
 
 
-          <div class="form-column">
+          <div class="form-block">
             <div pr-input pr-validate="['required']">
               <label>First Name</label>
               <input type="text" ng-model="demo.name">
@@ -104,7 +104,7 @@
             <label>Notes</label>
             <textarea ng-model="demo.notes" name="notes" rows="5"></textarea>
           </div>
-          <div class="form-column">
+          <div class="form-block">
 
             <label>Which services are included?</label>
             <div pr-input class="checkbox">
@@ -138,7 +138,7 @@
 
         <h2>Contacts<button type="button" ng-click="demo.addContact()" class="btn btn-success">Add Contact</button></h2>
         <div class="form-row">
-          <div class="form-column" ng-repeat="contact in demo.contacts">
+          <div class="form-block" ng-repeat="contact in demo.contacts">
             <div class="form-row">
               <div pr-input pr-validate="['required']">
                 <label>First Name</label>
@@ -167,15 +167,15 @@
       </form>
     </div>
 
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/angular-ui-select/dist/select.js"></script>
-    <script src="../bower_components/pickadate/lib/picker.js"></script>
-    <script src="../bower_components/pickadate/lib/picker.date.js"></script>
-    <script src="../bower_components/pickadate/lib/picker.time.js"></script>
-    <script src="../bower_components/moment/moment.js"></script>
-    <script src="../bower_components/angular-messages/angular-messages.js"></script>
-    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="/bower_components/pickadate/lib/picker.js"></script>
+    <script src="/bower_components/pickadate/lib/picker.date.js"></script>
+    <script src="/bower_components/pickadate/lib/picker.time.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
     <script src="app.js"></script>
 
     <!-- build:js praece-ng-forms.js -->
