@@ -11,14 +11,30 @@ Add pickadate, ui-select, and select2 .css files to your index.html file:
 <link rel="stylesheet" href="../bower_components/select2/select2.css" />
 ```
 
-Import the pr-forms scss directly in your scss file:
+Include all javascript files:
 ```
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-ui-select/dist/select.js"></script>
+<script src="../bower_components/pickadate/lib/picker.js"></script>
+<script src="../bower_components/pickadate/lib/picker.date.js"></script>
+<script src="../bower_components/pickadate/lib/picker.time.js"></script>
+<script src="../bower_components/moment/moment.js"></script>
+<script src="../bower_components/angular-messages/angular-messages.js"></script>
+<script src="../bower_components/lodash/lodash.js"></script>
+<script src="../bower_components/praece-ng-forms/praece-ng-forms.js"></script>
+```
+
+Import the pr-forms and bootstrap scss directly in your scss file:
+```
+@import bootstrap
 @import praece-ng-forms;
 ```
 
-Add the pr-forms include path to your sass config:
+Add the pr-forms and bootstrap paths to the include path of your sass config:
 ```
-bower-components/praece-ng-form/dist
+bower_components/praece-ng-form/dist
+bower_components/bootstrap-sass/assets/stylesheets
 ```
 
 #Example
