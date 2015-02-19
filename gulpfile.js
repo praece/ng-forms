@@ -9,7 +9,7 @@ var rename      = require("gulp-rename");
 gulp.task('browser-sync', function() {
   browserSync({
     server: {
-      baseDir: "src"
+      baseDir: "src",
       routes: {
         "/bower_components": "bower_components"
       }
