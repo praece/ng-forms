@@ -27,8 +27,8 @@ Include all javascript files:
 
 Import the pr-forms and bootstrap scss directly in your scss file:
 ```
-@import bootstrap
-@import praece-ng-forms;
+@import 'bootstrap';
+@import 'praece-ng-forms';
 ```
 
 Add the pr-forms and bootstrap paths to the include path of your sass config:
