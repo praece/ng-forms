@@ -4949,6 +4949,17 @@ select:active, select:focus {
     .form-row > .form-element .form-validation svg {
       margin-right: 15px; }
 
+.picker {
+  min-width: 300px; }
+  .picker select {
+    display: inline-block; }
+
+.picker__select--year {
+  width: 24.5%; }
+
+.picker__select--month {
+  width: 39%; }
+
 .select2-container, .select2-drop {
   width: 100%; }
 

@@ -87,6 +87,23 @@ textarea {
   }
 }
 
+// Pickadate styling
+.picker {
+	min-width: 300px;
+
+	select {
+		display: inline-block;
+	}
+}
+
+.picker__select--year {
+	width: 24.5%;
+}
+
+.picker__select--month {
+	width: 39%;
+}
+
 // Select2 styling
 .select2-container, .select2-drop {
 	width: 100%;
