@@ -15,8 +15,25 @@ function() {
 
         return modelValue.toString();
       });
+
       ctrl.$parsers.unshift(function(viewValue) {
         return Number(viewValue);
+      });
+    }
+  };
+}]);
+
+angular.module('pr.forms').directive('prPhoneInput', [
+  '$filter',
+
+function($filter) {
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    link: function(scope, element, attr, ctrl) {
+
+      ctrl.$formatters.unshift(function (modelValue) {
+        return $filter('prPhone')(modelValue);
       });
     }
   };

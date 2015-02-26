@@ -3,19 +3,15 @@
 angular.module('pr.forms').directive('prValidate', [
   '$compile',
   '$templateCache',
-  '$filter',
   '$http',
   '$q',
   '$timeout',
+  '$filter',
 
-function($compile, $templateCache, $filter, $http, $q, $timeout) {
+function($compile, $templateCache, $http, $q, $timeout, $filter) {
   var validators = {};
 
   validators.phone = function(scope) {
-    scope.input.$formatters.unshift(function (modelValue) {
-      return $filter('prPhone')(modelValue);
-    });
-
     scope.input.$parsers.unshift(function (viewValue) {
       if (!viewValue) {
         scope.input.$setValidity('phone', true);
@@ -33,7 +29,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
 
       return viewValue;
     });
-  }
+  };
 
   validators.zip = function(scope) {
     scope.input.$parsers.unshift(function (viewValue) {
@@ -53,7 +49,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
 
       return viewValue;
     });
-  }
+  };
 
   validators.required = function(scope) {
     function validation(value) {
@@ -69,7 +65,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
     scope.input.$formatters.unshift(validation);
     scope.input.$parsers.unshift(validation);
     validation(scope.input.$modelValue);
-  }
+  };
 
   validators.unique = function(scope) {
     scope.input.$asyncValidators.unique = function(modelValue, viewValue) {
@@ -102,7 +98,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
 
       return deferred.promise;
     }
-  }
+  };
 
   return {
     restrict: 'A',

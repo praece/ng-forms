@@ -114,8 +114,25 @@ function() {
 
         return modelValue.toString();
       });
+
       ctrl.$parsers.unshift(function(viewValue) {
         return Number(viewValue);
+      });
+    }
+  };
+}]);
+
+angular.module('pr.forms').directive('prPhoneInput', [
+  '$filter',
+
+function($filter) {
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    link: function(scope, element, attr, ctrl) {
+
+      ctrl.$formatters.unshift(function (modelValue) {
+        return $filter('prPhone')(modelValue);
       });
     }
   };
@@ -125,19 +142,15 @@ function() {
 angular.module('pr.forms').directive('prValidate', [
   '$compile',
   '$templateCache',
-  '$filter',
   '$http',
   '$q',
   '$timeout',
+  '$filter',
 
-function($compile, $templateCache, $filter, $http, $q, $timeout) {
+function($compile, $templateCache, $http, $q, $timeout, $filter) {
   var validators = {};
 
   validators.phone = function(scope) {
-    scope.input.$formatters.unshift(function (modelValue) {
-      return $filter('prPhone')(modelValue);
-    });
-
     scope.input.$parsers.unshift(function (viewValue) {
       if (!viewValue) {
         scope.input.$setValidity('phone', true);
@@ -155,7 +168,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
 
       return viewValue;
     });
-  }
+  };
 
   validators.zip = function(scope) {
     scope.input.$parsers.unshift(function (viewValue) {
@@ -175,7 +188,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
 
       return viewValue;
     });
-  }
+  };
 
   validators.required = function(scope) {
     function validation(value) {
@@ -191,7 +204,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
     scope.input.$formatters.unshift(validation);
     scope.input.$parsers.unshift(validation);
     validation(scope.input.$modelValue);
-  }
+  };
 
   validators.unique = function(scope) {
     scope.input.$asyncValidators.unique = function(modelValue, viewValue) {
@@ -224,7 +237,7 @@ function($compile, $templateCache, $filter, $http, $q, $timeout) {
 
       return deferred.promise;
     }
-  }
+  };
 
   return {
     restrict: 'A',
@@ -271,11 +284,12 @@ angular.module('pr.forms').filter('prPhone', [
 function() {
 	return function(number) {
 		if (number) {
-			var len = _.size(number),
-			    cc = len > 10 ? '+' + number.substring(0, len - 10) + ' ' : '',
-			    ac = number.substring(len - 10, len - 7),
-			    p1 = number.substring(len - 7, len - 4),
-			    p2 = number.substring(len - 4);
+			var number = number.replace(/\W/g,'');
+			var len = _.size(number);
+			var cc = len > 10 ? '+' + number.substring(0, len - 10) + ' ' : '';
+			var ac = number.substring(len - 10, len - 7);
+			var p1 = number.substring(len - 7, len - 4);
+			var p2 = number.substring(len - 4);
 
 	    number = cc + ac + '-' + p1 + '-' + p2;
 	  }

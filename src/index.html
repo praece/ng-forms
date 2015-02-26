@@ -16,7 +16,7 @@
   <body>
 
     <div ng-controller="demoCtrl as demo">
-      <form ng-submit="demo.submit()" novalidate name="form">
+      <form ng-submit="demo.submit()" novalidate name="form" >
 
         <h2>Contract Details</h2>
         <div class="form-row">
@@ -153,9 +153,9 @@
               <label>Email</label>
               <input type="text" ng-model="contact.email">
             </div>
-            <div pr-input pr-validate="['required']" >
+            <div pr-input pr-validate="['required', 'phone']">
               <label>Phone</label>
-              <input type="text" ng-model="contact.phone">
+              <input type="text" ng-model="contact.phone" autocomplete="false" pr-phone-input>
             </div>
           </div>
         </div>
@@ -182,7 +182,7 @@
     <script src="module.js"></script>
     <script src="directives/datepicker.js"></script>
     <script src="directives/elements.js"></script>
-    <script src="directives/number-input.js"></script>
+    <script src="directives/input-formatters.js"></script>
     <script src="directives/validation.js"></script>
     <script src="filters/formatters.js"></script>
     <!-- endbuild -->
