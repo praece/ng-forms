@@ -21,6 +21,7 @@ function($timeout) {
   ];
   
   demo.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  demo.time = '0330';
 
   demo.contacts = [{phone: '253-740-8838'}, {}];
 

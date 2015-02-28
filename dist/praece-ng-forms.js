@@ -47,8 +47,9 @@ function() {
 }]);
 
 angular.module('pr.forms').directive('prTimePicker', [
+  '$filter',
 
-function() {
+function($filter) {
   return {
     require: 'ngModel',
     restrict: 'A',
@@ -62,6 +63,7 @@ function() {
       var picker = element.pickatime('picker');
 
       ctrl.$formatters.unshift(function(modelValue) {
+        modelValue = $filter('prTime')(modelValue);
         picker.set('highlight', modelValue);
 
         return modelValue;
@@ -69,6 +71,14 @@ function() {
 
       ctrl.$parsers.unshift(function(viewValue) {
         picker.set('highlight', viewValue);
+
+        if (viewValue && _.isString(viewValue)) {
+          var values = viewValue.split(' ');
+          var time = values.shift().replace(':', '');
+          var period = values.shift();
+          
+          viewValue = period === 'AM' ? _.padLeft(time, 4, '0') : (_.parseInt(time) + 1200).toString();
+        }
 
         return viewValue;
       });
@@ -145,9 +155,8 @@ angular.module('pr.forms').directive('prValidate', [
   '$http',
   '$q',
   '$timeout',
-  '$filter',
 
-function($compile, $templateCache, $http, $q, $timeout, $filter) {
+function($compile, $templateCache, $http, $q, $timeout) {
   var validators = {};
 
   validators.phone = function(scope) {
@@ -295,5 +304,22 @@ function() {
 	  }
 
     return number;
+	};
+}]);
+
+angular.module('pr.forms').filter('prTime', [
+
+function() {
+	return function(time) {
+		if (_.isString(time) && _.size(time) === 4) {
+      var hours = _.parseInt(time.substring(0, 2));
+      var minutes = _.parseInt(time.substring(2, 4));
+      var period = hours < 12 ? 'AM' : 'PM';
+      hours = hours < 13 ? hours : hours - 12;
+
+      time = hours + ':' + _.padRight(minutes, 2, '0') + ' ' + period;
+    }
+
+    return time;
 	};
 }]);

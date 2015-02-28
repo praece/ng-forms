@@ -18,3 +18,20 @@ function() {
     return number;
 	};
 }]);
+
+angular.module('pr.forms').filter('prTime', [
+
+function() {
+	return function(time) {
+		if (_.isString(time) && _.size(time) === 4) {
+      var hours = _.parseInt(time.substring(0, 2));
+      var minutes = _.parseInt(time.substring(2, 4));
+      var period = hours < 12 ? 'AM' : 'PM';
+      hours = hours < 13 ? hours : hours - 12;
+
+      time = hours + ':' + _.padRight(minutes, 2, '0') + ' ' + period;
+    }
+
+    return time;
+	};
+}]);

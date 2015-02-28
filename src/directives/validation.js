@@ -6,9 +6,8 @@ angular.module('pr.forms').directive('prValidate', [
   '$http',
   '$q',
   '$timeout',
-  '$filter',
 
-function($compile, $templateCache, $http, $q, $timeout, $filter) {
+function($compile, $templateCache, $http, $q, $timeout) {
   var validators = {};
 
   validators.phone = function(scope) {

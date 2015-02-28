@@ -44,8 +44,9 @@ function() {
 }]);
 
 angular.module('pr.forms').directive('prTimePicker', [
+  '$filter',
 
-function() {
+function($filter) {
   return {
     require: 'ngModel',
     restrict: 'A',
@@ -59,6 +60,7 @@ function() {
       var picker = element.pickatime('picker');
 
       ctrl.$formatters.unshift(function(modelValue) {
+        modelValue = $filter('prTime')(modelValue);
         picker.set('highlight', modelValue);
 
         return modelValue;
@@ -66,6 +68,14 @@ function() {
 
       ctrl.$parsers.unshift(function(viewValue) {
         picker.set('highlight', viewValue);
+
+        if (viewValue && _.isString(viewValue)) {
+          var values = viewValue.split(' ');
+          var time = values.shift().replace(':', '');
+          var period = values.shift();
+          
+          viewValue = period === 'AM' ? _.padLeft(time, 4, '0') : (_.parseInt(time) + 1200).toString();
+        }
 
         return viewValue;
       });
