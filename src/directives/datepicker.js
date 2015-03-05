@@ -21,9 +21,7 @@ function() {
       });
 
       ctrl.$formatters.unshift(function(modelValue) {
-        if (!modelValue) {
-          return null;
-        }
+        if (!modelValue) return null;
 
         var date = moment(modelValue);
 
@@ -35,6 +33,8 @@ function() {
       });
 
       ctrl.$parsers.unshift(function(viewValue) {
+        if (!viewValue) return null;
+
         var date = moment(viewValue, 'M/D/YY', true);
 
         if (date.isValid()) {

@@ -20,6 +20,7 @@ function($timeout) {
     {id: '9', name: 'Fikes Products'}
   ];
   
+  demo.startDate = moment().toDate();
   demo.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   demo.time = '0330';
 
