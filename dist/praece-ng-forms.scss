@@ -96,6 +96,14 @@ textarea {
 	}
 }
 
+.picker.picker--opened.picker--focused .picker__holder {
+	outline: none;
+}
+
+input[type="text"].picker__input--active {
+	@extend .form-control:focus;
+}
+
 .picker__select--year {
 	width: 24.5%;
 }

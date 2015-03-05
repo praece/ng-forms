@@ -19,6 +19,10 @@ function() {
 
       var picker = element.pickadate('picker');
 
+      element.on('focus', function() {
+        picker.open();
+      });
+
       ctrl.$formatters.unshift(function(modelValue) {
         if (!modelValue) {
           return null;
