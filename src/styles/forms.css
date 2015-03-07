@@ -4963,6 +4963,9 @@ select:active, select:focus {
 .picker__select--month {
   width: 39%; }
 
+.picker__input[readonly][type="text"] {
+  background-color: transparent; }
+
 .select2-container, .select2-drop {
   width: 100%; }
 

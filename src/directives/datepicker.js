@@ -57,11 +57,14 @@ function($filter) {
     link: function(scope, element, attr, ctrl) {
       element.pickatime({
         min: [5,0],
-        max: [20,0],
-        editable: true
+        max: [20,0]
       });
 
       var picker = element.pickatime('picker');
+
+      element.on('focus', function() {
+        picker.open();
+      });
 
       ctrl.$formatters.unshift(function(modelValue) {
         modelValue = $filter('prTime')(modelValue);

@@ -112,6 +112,10 @@ input[type="text"].picker__input--active {
 	width: 39%;
 }
 
+.picker__input[readonly][type="text"] {
+	background-color: transparent;
+}
+
 // Select2 styling
 .select2-container, .select2-drop {
 	width: 100%;
