@@ -9,13 +9,20 @@ function() {
   return {
     require: 'ngModel',
     restrict: 'A',
+    scope: {
+      options: '=prDatePicker'
+    },
     link: function(scope, element, attr, ctrl) {
-      element.pickadate({
+      var defaults = {
         format: 'm/d/yy',
         editable: true,
         selectYears: true,
         selectMonths: true
-      });
+      };
+
+      var options = _.merge({}, defaults, scope.options);
+
+      element.pickadate(options);
 
       var picker = element.pickadate('picker');
 
@@ -57,11 +64,18 @@ function($filter) {
   return {
     require: 'ngModel',
     restrict: 'A',
+    scope: {
+      options: '=prTimePicker'
+    },
     link: function(scope, element, attr, ctrl) {
-      element.pickatime({
+      var defaults = {
         min: [5,0],
         max: [20,0]
-      });
+      };
+
+      var options = _.merge({}, defaults, scope.options);
+
+      element.pickatime(options);
 
       var picker = element.pickatime('picker');
 
