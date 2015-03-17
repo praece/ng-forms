@@ -125,7 +125,6 @@ input[type="text"].picker__input--active {
 
 	.select2-choice {
 		@extend .form-control;
-		background: transparent;
 		line-height: 34px;
 		height: 34px;
 		margin: 0;
@@ -180,7 +179,6 @@ input[type="text"].picker__input--active {
 
 	&.select2-dropdown-open, &.select2-dropdown-open.select2-drop-above {
 		.select2-choice {
-			background: transparent;
 			border-bottom-right-radius: 0;
 			border-bottom-left-radius: 0;
 		}

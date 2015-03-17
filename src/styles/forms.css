@@ -4970,7 +4970,6 @@ select:active, select:focus {
   width: 100%; }
 
 .select2-container .select2-choice {
-  background: transparent;
   line-height: 34px;
   height: 34px;
   margin: 0;
@@ -5000,7 +4999,6 @@ select:active, select:focus {
 .select2-container:hover .select2-choice .select2-arrow b {
   color: #000; }
 .select2-container.select2-dropdown-open .select2-choice, .select2-container.select2-dropdown-open.select2-drop-above .select2-choice {
-  background: transparent;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 .select2-container.select2-dropdown-open .select2-arrow b, .select2-container.select2-dropdown-open.select2-drop-above .select2-arrow b {

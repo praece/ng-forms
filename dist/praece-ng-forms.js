@@ -98,8 +98,10 @@ function($filter) {
           var time = values.shift().replace(':', '');
           var period = values.shift();
           
-          viewValue = period === 'AM' ? _.padLeft(time, 4, '0') : (_.parseInt(time) + 1200).toString();
+          viewValue = period === 'AM' || _.parseInt(time) >= 1200 ? _.padLeft(time, 4, '0') : (_.parseInt(time) + 1200).toString();
         }
+
+        console.log(viewValue);
 
         return viewValue;
       });
