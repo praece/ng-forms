@@ -25,7 +25,7 @@ label {
 	user-select: none;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
 	@extend .form-control;
 
 	&:active, &:focus {
@@ -52,7 +52,7 @@ textarea {
 .form-actions {
 	margin-top: 36px;
 
-	* {
+	> * {
 		float: right;
 	}
 }
