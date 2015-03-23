@@ -5038,8 +5038,8 @@ select:active, select:focus {
     .select2-drop .select2-search input, .select2-drop.select2-drop-above .select2-search input {
       margin-top: 0;
       border: 0;
-      border-bottom: 1px solid #ddd;
-      border-top: 0;
+      border-bottom: 0;
+      border-top: 1px solid #ddd;
       border-radius: 0;
       box-shadow: none !important;
       background-image: none !important; }
