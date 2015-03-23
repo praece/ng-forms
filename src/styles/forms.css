@@ -5014,7 +5014,8 @@ select:active, select:focus {
   box-shadow: none; }
   .select2-drop .select2-results, .select2-drop.select2-drop-above .select2-results {
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    border-top: 1px solid #ddd; }
     .select2-drop .select2-results .select2-result-label, .select2-drop.select2-drop-above .select2-results .select2-result-label {
       padding: 6px 12px; }
     .select2-drop .select2-results .select2-highlighted, .select2-drop.select2-drop-above .select2-results .select2-highlighted {
@@ -5038,7 +5039,7 @@ select:active, select:focus {
       margin-top: 0;
       border: 0;
       border-bottom: 1px solid #ddd;
-      border-top: 1px solid #ddd;
+      border-top: 0;
       border-radius: 0;
       box-shadow: none !important;
       background-image: none !important; }
