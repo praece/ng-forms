@@ -131,8 +131,8 @@ input[type="text"].picker__input--active {
 
 	.select2-choice {
 		@extend .form-control;
-		line-height: 34px;
-		height: 34px;
+		line-height: $input-height-base;
+		height: $input-height-base;
 		margin: 0;
 		padding-top: 0;
 
