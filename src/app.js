@@ -9,13 +9,13 @@ function($timeout) {
   var demo = this;
 
   demo.clients = [
-    {id: '1', name: 'Praece Consulting'}, 
+    {id: '1', name: 'Praece Consulting', disabled: true}, 
     {id: '2', name: 'Microsoft'}, 
     {id: '3', name: 'Daniel\'s Broiler'},
-    {id: '4', name: 'Jack in the Box'},
+    {id: '4', name: 'Jack in the Box', disabled: true},
     {id: '5', name: 'Burger King'},
     {id: '6', name: 'Boeing'},
-    {id: '7', name: 'Manmoon'},
+    {id: '7', name: 'Manmoon', disabled: true},
     {id: '8', name: 'Fred Meyer'},
     {id: '9', name: 'Fikes Products'}
   ];

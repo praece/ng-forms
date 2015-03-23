@@ -57,6 +57,12 @@ textarea {
 	}
 }
 
+// Disabled elements.
+.radio.disabled label, fieldset[disabled] .radio label, .checkbox.disabled label, fieldset[disabled] .checkbox label {
+	cursor: not-allowed;
+	color: #bfbfbf;
+}
+
 // Form validation
 .form-validation {
 	position: absolute;
@@ -205,6 +211,15 @@ input[type="text"].picker__input--active {
 		.select2-highlighted {
 			background-color: #f5f5f5;
 			color: #000;
+		}
+
+		.select2-disabled {
+			background-color: #fff;
+			color: #bfbfbf; 
+
+			.select2-result-label {
+				cursor: not-allowed;
+			}
 		}
 	}
 

@@ -30,7 +30,7 @@
               <label>Client</label>
               <ui-select ng-model="demo.client" theme="select2">
                 <ui-select-match>{{$select.selected.name}}</ui-select-match>
-                <ui-select-choices repeat="client.id as client in demo.clients | filter:$select.search">
+                <ui-select-choices repeat="client.id as client in demo.clients | filter:$select.search" ui-disable-choice="client.disabled">
                   <div>{{client.name}}</div>
                 </ui-select-choices>
               </ui-select>
@@ -107,9 +107,9 @@
           <div class="form-block">
 
             <label>Which services are included?</label>
-            <div pr-input class="checkbox">
+            <div pr-input class="checkbox disabled">
               <label>
-                <input type="checkbox" ng-model="demo.checkbox1">
+                <input type="checkbox" ng-model="demo.checkbox1" disabled="true">
                 Service A
               </label>
             </div>
@@ -127,9 +127,9 @@
                 Product A.1
               </label>
             </div>
-            <div pr-input class="radio" pr-validate="['required']">
+            <div pr-input class="radio disabled" pr-validate="['required']">
               <label>
-                <input type="radio" ng-model="demo.radio" value="B">
+                <input type="radio" ng-model="demo.radio" value="B" disabled="true">
                 Product A.2
               </label>
             </div>
