@@ -52,7 +52,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
 
   validators.required = function(scope) {
     function validation(value) {
-      if (!value) {
+      if (!value && !_.isNumber(value)) {
         scope.input.$setValidity('required', false);
         return null;
       }
