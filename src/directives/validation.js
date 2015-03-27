@@ -12,15 +12,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
 
   validators.phone = function(scope) {
     scope.input.$parsers.unshift(function (viewValue) {
-      if (!viewValue) {
-        scope.input.$setValidity('phone', true);
-        return null;
-      }
-
-      viewValue = viewValue.replace(/\W/g,'');
-
-      // Check for letters and make sure the value is the right length.
-      if (!_.isNaN(+viewValue) && _.size(viewValue) > 9 && _.size(viewValue) < 16) {
+      if (is.empty(viewValue) || is.nanpPhone(viewValue)) {
         scope.input.$setValidity('phone', true);
       } else {
         scope.input.$setValidity('phone', false);
@@ -30,17 +22,21 @@ function($compile, $templateCache, $http, $q, $timeout) {
     });
   };
 
-  validators.zip = function(scope) {
+  validators.email = function(scope) {
     scope.input.$parsers.unshift(function (viewValue) {
-      if (!viewValue) {
-        scope.input.$setValidity('zip', true);
-        return null;
+      if (is.empty(viewValue) || is.email(viewValue)) {
+        scope.input.$setValidity('email', true);
+      } else {
+        scope.input.$setValidity('email', false);
       }
 
-      var test = viewValue.replace('-','');
+      return viewValue;
+    });
+  };
 
-      // Check for letters and make sure the value is the right length.
-      if (!_.isNaN(+test) && (_.size(test) === 5 || _.size(test) === 9)) {
+  validators.zip = function(scope) {
+    scope.input.$parsers.unshift(function (viewValue) {
+      if (is.empty(viewValue) || is.usZipCode(viewValue)) {
         scope.input.$setValidity('zip', true);
       } else {
         scope.input.$setValidity('zip', false);
@@ -116,6 +112,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
           '<div ng-message="required">Required</div>' +
           '<div ng-message="phone">Invalid phone number</div>' +
           '<div ng-message="zip">Invalid zip code</div>' +
+          '<div ng-message="email">Invalid email address</div>' +
           '<div ng-message="unique">This {{options.unique.label}} is taken</div>' +
         '</div>';      
 

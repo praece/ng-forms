@@ -26,6 +26,11 @@
               <input type="text" ng-model="demo.accountNumber">
             </div>
 
+            <div pr-input pr-validate="['email','required']">
+              <label>Email</label>
+              <input type="text" ng-model="demo.email">
+            </div>
+
             <div pr-input pr-validate="['required']">
               <label>Client</label>
               <ui-select ng-model="demo.client" theme="select2">
@@ -77,22 +82,26 @@
               <label>Password</label>
               <input type="password" ng-model="demo.password">
             </div>
+            <div pr-input pr-validate="['phone']">
+              <label>Phone</label>
+              <input type="text" ng-model="demo.phone">
+            </div>
             <div pr-input pr-validate="['required']" >
               <label>Service Address</label>
-              <input type="text" ng-model="demo.name">
+              <input type="text" ng-model="demo.address">
             </div>
             <div class="form-row" id="billing-address">
               <div pr-input pr-validate="['required']" id="city">
                 <label>City</label>
-                <input type="text" ng-model="demo.name">
+                <input type="text" ng-model="demo.city">
               </div>
               <div pr-input pr-validate="['required']" id="state">
                 <label>State</label>
-                <input type="text" ng-model="demo.name">
+                <input type="text" ng-model="demo.state">
               </div>
-              <div pr-input pr-validate="['required']" id="zip">
+              <div pr-input pr-validate="['zip']" id="zip">
                 <label>Zip</label>
-                <input type="text" ng-model="demo.name">
+                <input type="text" ng-model="demo.zip">
               </div>
             </div>
           </div>
@@ -176,6 +185,7 @@
     <script src="/bower_components/moment/moment.js"></script>
     <script src="/bower_components/angular-messages/angular-messages.js"></script>
     <script src="/bower_components/lodash/lodash.js"></script>
+    <script src="/bower_components/isjs/is.js"></script>
     <script src="app.js"></script>
 
     <!-- build:js praece-ng-forms.js -->
