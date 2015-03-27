@@ -27,6 +27,10 @@ function() {
         picker.open();
       });
 
+      element.on('click', function() {
+        picker.open();
+      });
+
       ctrl.$formatters.unshift(function(modelValue) {
         if (!modelValue) return null;
 
@@ -97,8 +101,6 @@ function($filter) {
           
           viewValue = period === 'AM' || _.parseInt(time) >= 1200 ? _.padLeft(time, 4, '0') : (_.parseInt(time) + 1200).toString();
         }
-
-        console.log(viewValue);
 
         return viewValue;
       });
