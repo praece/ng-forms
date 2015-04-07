@@ -46,15 +46,15 @@ function($compile, $templateCache, $http, $q, $timeout) {
     });
   };
 
-  validators.required = function(scope) {
+  validators.required = function(scope, input) {
     function validation(value) {
-      if (!value && !_.isNumber(value)) {
-        scope.input.$setValidity('required', false);
-        return null;
+      if ((is.existy(value) && is.not.empty(value)) || input.get(0).disabled) {
+        scope.input.$setValidity('required', true);
+        return value;
       }
 
-      scope.input.$setValidity('required', true);
-      return value;
+      scope.input.$setValidity('required', false);
+      return null;
     };
 
     scope.input.$formatters.unshift(validation);
@@ -126,7 +126,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
           element.append($compile(template)(scope));
 
           _.forEach(scope.validations, function(validation){
-            validators[validation](scope);
+            validators[validation](scope, input);
           });
         }
       });
