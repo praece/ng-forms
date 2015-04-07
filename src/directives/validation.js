@@ -48,7 +48,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
 
   validators.required = function(scope, input) {
     function validation(value) {
-      if ((is.existy(value) && is.not.empty(value)) || input.get(0).disabled) {
+      if ((is.existy(value) && is.not.empty(value)) || input.attr('disabled')) {
         scope.input.$setValidity('required', true);
         return value;
       }

@@ -33,7 +33,7 @@
 
             <div pr-input pr-validate="['required']">
               <label>Client</label>
-              <ui-select ng-model="demo.client" theme="select2">
+              <ui-select ng-model="demo.client" theme="select2" ng-disabled="true">
                 <ui-select-match>{{$select.selected.name}}</ui-select-match>
                 <ui-select-choices repeat="client.id as client in demo.clients | filter:$select.search" ui-disable-choice="client.disabled">
                   <div>{{client.name}}</div>
