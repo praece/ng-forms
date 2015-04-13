@@ -224,7 +224,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
     function validation(value) {
       var defaults = {required: {disabled: false}};
       var options = _.merge(defaults, scope.options);
-      var set = is.existy(value) && is.not.empty(value);
+      var set = is.existy(value) && (is.not.empty(value) || is.date(value));
       var disabled = input.attr('disabled') || !!options.required.disabled;
 
       if (set || disabled) {
@@ -236,9 +236,11 @@ function($compile, $templateCache, $http, $q, $timeout) {
       return null;
     };
 
-    scope.$watch('options.required.disabled', function(newValue) {
-      validation(scope.input.viewValue);
-    });
+    if (scope.options && scope.options.required) {
+      scope.$watch('options.required.disabled', function(newValue) {
+        validation(scope.input.viewValue);
+      });
+    }
 
     scope.input.$formatters.unshift(validation);
     scope.input.$parsers.unshift(validation);
