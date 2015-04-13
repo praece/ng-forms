@@ -222,7 +222,12 @@ function($compile, $templateCache, $http, $q, $timeout) {
 
   validators.required = function(scope, input) {
     function validation(value) {
-      if ((is.existy(value) && is.not.empty(value)) || input.attr('disabled')) {
+      var defaults = {required: {disabled: false}};
+      var options = _.merge(defaults, scope.options);
+      var set = is.existy(value) && is.not.empty(value);
+      var disabled = input.attr('disabled') || !!options.required.disabled;
+
+      if (set || disabled) {
         scope.input.$setValidity('required', true);
         return value;
       }
@@ -230,6 +235,10 @@ function($compile, $templateCache, $http, $q, $timeout) {
       scope.input.$setValidity('required', false);
       return null;
     };
+
+    scope.$watch('options.required.disabled', function(newValue) {
+      validation(scope.input.viewValue);
+    });
 
     scope.input.$formatters.unshift(validation);
     scope.input.$parsers.unshift(validation);
@@ -288,7 +297,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
           '<div ng-message="zip">Invalid zip code</div>' +
           '<div ng-message="email">Invalid email address</div>' +
           '<div ng-message="unique">This {{options.unique.label}} is taken</div>' +
-        '</div>';      
+        '</div>';
 
       $timeout(function() {
         input = element.find('input, select, textarea, .select2').first();

@@ -4,8 +4,9 @@ var demo = angular.module('demo', ['ui.select', 'pr.forms']);
 
 demo.controller('demoCtrl', [
 	'$timeout',
+  '$scope',
 
-function($timeout) {
+function($timeout, $scope) {
   var demo = this;
 
   demo.clients = [
@@ -24,6 +25,13 @@ function($timeout) {
   demo.startDate = moment().toDate();
   demo.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   demo.time = '0330';
+
+  demo.phone = '253-740-8839';
+  demo.passwordOptions = {};
+
+  $scope.$watch('demo.phone', function(newValue) {
+    demo.passwordOptions.required = {disabled: demo.phone};
+  });
 
   demo.contacts = [{phone: '253-740-8838'}, {}];
 
