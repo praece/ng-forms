@@ -25,7 +25,7 @@ label {
 	user-select: none;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], textarea {
 	@extend .form-control;
 
 	&:active, &:focus {
@@ -43,10 +43,6 @@ select {
 	&:active, &:focus {
 		outline: none;
 	}
-}
-
-textarea {
-	@extend .form-control;
 }
 
 .form-actions {

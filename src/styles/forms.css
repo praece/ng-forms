@@ -878,10 +878,22 @@ td, th {
 .glyphicon-bitcoin:before {
   content: "\e227"; }
 
+.glyphicon-btc:before {
+  content: "\e227"; }
+
+.glyphicon-xbt:before {
+  content: "\e227"; }
+
 .glyphicon-yen:before {
   content: "\00a5"; }
 
+.glyphicon-jpy:before {
+  content: "\00a5"; }
+
 .glyphicon-ruble:before {
+  content: "\20bd"; }
+
+.glyphicon-rub:before {
   content: "\20bd"; }
 
 .glyphicon-scale:before {
@@ -1068,6 +1080,9 @@ hr {
   overflow: visible;
   clip: auto; }
 
+[role="button"] {
+  cursor: pointer; }
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: inherit;
   font-weight: 500;
@@ -1145,7 +1160,7 @@ mark, .mark {
 .text-lowercase {
   text-transform: lowercase; }
 
-.text-uppercase {
+.text-uppercase, .initialism {
   text-transform: uppercase; }
 
 .text-capitalize {
@@ -1276,8 +1291,7 @@ abbr[title], abbr[data-original-title] {
   border-bottom: 1px dotted #777777; }
 
 .initialism {
-  font-size: 90%;
-  text-transform: uppercase; }
+  font-size: 90%; }
 
 blockquote {
   padding: 10px 20px;
@@ -2042,7 +2056,7 @@ output {
   line-height: 1.42857;
   color: #555555; }
 
-.form-control, input[type="text"], input[type="password"], select, textarea, .select2-container .select2-choice {
+.form-control, input[type="text"], input[type="password"], textarea, select, .select2-container .select2-choice {
   display: block;
   width: 100%;
   height: 34px;
@@ -2059,22 +2073,23 @@ output {
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
-  .form-control:focus, input[type="text"]:focus, input[type="password"]:focus, select:focus, textarea:focus, input[type="text"].picker__input--active, .select2-container .select2-choice:focus, .select2-container.select2-container-active .select2-choice {
+  .form-control:focus, input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus, input[type="text"].picker__input--active, .select2-container .select2-choice:focus, .select2-container.select2-container-active .select2-choice {
     border-color: #66afe9;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
-  .form-control::-moz-placeholder, input[type="text"]::-moz-placeholder, input[type="password"]::-moz-placeholder, select::-moz-placeholder, textarea::-moz-placeholder, .select2-container .select2-choice::-moz-placeholder {
+  .form-control::-moz-placeholder, input[type="text"]::-moz-placeholder, input[type="password"]::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder, .select2-container .select2-choice::-moz-placeholder {
     color: #999;
     opacity: 1; }
-  .form-control:-ms-input-placeholder, input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder, .select2-container .select2-choice:-ms-input-placeholder {
+  .form-control:-ms-input-placeholder, input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, textarea:-ms-input-placeholder, select:-ms-input-placeholder, .select2-container .select2-choice:-ms-input-placeholder {
     color: #999; }
-  .form-control::-webkit-input-placeholder, input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, select::-webkit-input-placeholder, textarea::-webkit-input-placeholder, .select2-container .select2-choice::-webkit-input-placeholder {
+  .form-control::-webkit-input-placeholder, input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder, select::-webkit-input-placeholder, .select2-container .select2-choice::-webkit-input-placeholder {
     color: #999; }
-  .form-control[disabled], input[disabled][type="text"], input[disabled][type="password"], select[disabled], textarea[disabled], .select2-container [disabled].select2-choice, .form-control[readonly], input[readonly][type="text"], input[readonly][type="password"], select[readonly], textarea[readonly], .select2-container [readonly].select2-choice, fieldset[disabled] .form-control, fieldset[disabled] input[type="text"], fieldset[disabled] input[type="password"], fieldset[disabled] select, fieldset[disabled] textarea, fieldset[disabled] .select2-container .select2-choice, .select2-container fieldset[disabled] .select2-choice {
-    cursor: false;
+  .form-control[disabled], input[disabled][type="text"], input[disabled][type="password"], textarea[disabled], select[disabled], .select2-container [disabled].select2-choice, .form-control[readonly], input[readonly][type="text"], input[readonly][type="password"], textarea[readonly], select[readonly], .select2-container [readonly].select2-choice, fieldset[disabled] .form-control, fieldset[disabled] input[type="text"], fieldset[disabled] input[type="password"], fieldset[disabled] textarea, fieldset[disabled] select, fieldset[disabled] .select2-container .select2-choice, .select2-container fieldset[disabled] .select2-choice {
     background-color: #eeeeee;
     opacity: 1; }
+  .form-control[disabled], input[disabled][type="text"], input[disabled][type="password"], textarea[disabled], select[disabled], .select2-container [disabled].select2-choice, fieldset[disabled] .form-control, fieldset[disabled] input[type="text"], fieldset[disabled] input[type="password"], fieldset[disabled] textarea, fieldset[disabled] select, fieldset[disabled] .select2-container .select2-choice, .select2-container fieldset[disabled] .select2-choice {
+    cursor: false; }
 
 textarea.form-control, textarea, .select2-container textarea.select2-choice {
   height: auto; }
@@ -2114,6 +2129,7 @@ input[type="search"] {
   margin-top: -5px; }
 
 .radio-inline, .checkbox-inline {
+  position: relative;
   display: inline-block;
   padding-left: 20px;
   margin-bottom: 0;
@@ -2137,12 +2153,13 @@ input[type="radio"][disabled], input[type="radio"].disabled, fieldset[disabled] 
 .form-control-static {
   padding-top: 7px;
   padding-bottom: 7px;
-  margin-bottom: 0; }
-  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > input.form-control-static[type="text"], .input-group-lg > input.form-control-static[type="password"], .input-group-lg > select.form-control-static, .input-group-lg > textarea.form-control-static, .select2-container .input-group-lg > .form-control-static.select2-choice, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > input.form-control-static[type="text"], .input-group-sm > input.form-control-static[type="password"], .input-group-sm > select.form-control-static, .input-group-sm > textarea.form-control-static, .select2-container .input-group-sm > .form-control-static.select2-choice, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn {
+  margin-bottom: 0;
+  min-height: 34px; }
+  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > input.form-control-static[type="text"], .input-group-lg > input.form-control-static[type="password"], .input-group-lg > textarea.form-control-static, .input-group-lg > select.form-control-static, .select2-container .input-group-lg > .form-control-static.select2-choice, .input-group-lg > .form-control-static.input-group-addon, .input-group-lg > .input-group-btn > .form-control-static.btn, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > input.form-control-static[type="text"], .input-group-sm > input.form-control-static[type="password"], .input-group-sm > textarea.form-control-static, .input-group-sm > select.form-control-static, .select2-container .input-group-sm > .form-control-static.select2-choice, .input-group-sm > .form-control-static.input-group-addon, .input-group-sm > .input-group-btn > .form-control-static.btn {
     padding-left: 0;
     padding-right: 0; }
 
-.input-sm, .input-group-sm > .form-control, .input-group-sm > input[type="text"], .input-group-sm > input[type="password"], .input-group-sm > select, .input-group-sm > textarea, .select2-container .input-group-sm > .select2-choice, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn {
+.input-sm, .input-group-sm > .form-control, .input-group-sm > input[type="text"], .input-group-sm > input[type="password"], .input-group-sm > textarea, .input-group-sm > select, .select2-container .input-group-sm > .select2-choice, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -2156,7 +2173,7 @@ select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select
 textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > textarea, .select2-container .input-group-sm > textarea.select2-choice, .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-btn > textarea.btn, select[multiple].input-sm, .input-group-sm > select[multiple], .input-group-sm > .input-group-btn > select[multiple].btn {
   height: auto; }
 
-.form-group-sm .form-control, .form-group-sm input[type="text"], .form-group-sm input[type="password"], .form-group-sm select, .form-group-sm textarea, .form-group-sm .select2-container .select2-choice, .select2-container .form-group-sm .select2-choice {
+.form-group-sm .form-control, .form-group-sm input[type="text"], .form-group-sm input[type="password"], .form-group-sm textarea, .form-group-sm select, .form-group-sm .select2-container .select2-choice, .select2-container .form-group-sm .select2-choice {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -2171,9 +2188,10 @@ textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > te
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
-  line-height: 1.5; }
+  line-height: 1.5;
+  min-height: 32px; }
 
-.input-lg, .input-group-lg > .form-control, .input-group-lg > input[type="text"], .input-group-lg > input[type="password"], .input-group-lg > select, .input-group-lg > textarea, .select2-container .input-group-lg > .select2-choice, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn {
+.input-lg, .input-group-lg > .form-control, .input-group-lg > input[type="text"], .input-group-lg > input[type="password"], .input-group-lg > textarea, .input-group-lg > select, .select2-container .input-group-lg > .select2-choice, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
@@ -2187,7 +2205,7 @@ select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select
 textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea, .select2-container .input-group-lg > textarea.select2-choice, .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-btn > textarea.btn, select[multiple].input-lg, .input-group-lg > select[multiple], .input-group-lg > .input-group-btn > select[multiple].btn {
   height: auto; }
 
-.form-group-lg .form-control, .form-group-lg input[type="text"], .form-group-lg input[type="password"], .form-group-lg select, .form-group-lg textarea, .form-group-lg .select2-container .select2-choice, .select2-container .form-group-lg .select2-choice {
+.form-group-lg .form-control, .form-group-lg input[type="text"], .form-group-lg input[type="password"], .form-group-lg textarea, .form-group-lg select, .form-group-lg .select2-container .select2-choice, .select2-container .form-group-lg .select2-choice {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
@@ -2202,11 +2220,12 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
-  line-height: 1.33333; }
+  line-height: 1.33333;
+  min-height: 38px; }
 
 .has-feedback {
   position: relative; }
-  .has-feedback .form-control, .has-feedback input[type="text"], .has-feedback input[type="password"], .has-feedback select, .has-feedback textarea, .has-feedback .select2-container .select2-choice, .select2-container .has-feedback .select2-choice {
+  .has-feedback .form-control, .has-feedback input[type="text"], .has-feedback input[type="password"], .has-feedback textarea, .has-feedback select, .has-feedback .select2-container .select2-choice, .select2-container .has-feedback .select2-choice {
     padding-right: 42.5px; }
 
 .form-control-feedback {
@@ -2221,23 +2240,23 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   text-align: center;
   pointer-events: none; }
 
-.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > input[type="text"] + .form-control-feedback, .input-group-lg > input[type="password"] + .form-control-feedback, .input-group-lg > select + .form-control-feedback, .input-group-lg > textarea + .form-control-feedback, .select2-container .input-group-lg > .select2-choice + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback {
+.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > input[type="text"] + .form-control-feedback, .input-group-lg > input[type="password"] + .form-control-feedback, .input-group-lg > textarea + .form-control-feedback, .input-group-lg > select + .form-control-feedback, .select2-container .input-group-lg > .select2-choice + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback, .input-group-lg > .input-group-btn > .btn + .form-control-feedback {
   width: 46px;
   height: 46px;
   line-height: 46px; }
 
-.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > input[type="text"] + .form-control-feedback, .input-group-sm > input[type="password"] + .form-control-feedback, .input-group-sm > select + .form-control-feedback, .input-group-sm > textarea + .form-control-feedback, .select2-container .input-group-sm > .select2-choice + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback {
+.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .input-group-sm > input[type="text"] + .form-control-feedback, .input-group-sm > input[type="password"] + .form-control-feedback, .input-group-sm > textarea + .form-control-feedback, .input-group-sm > select + .form-control-feedback, .select2-container .input-group-sm > .select2-choice + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback, .input-group-sm > .input-group-btn > .btn + .form-control-feedback {
   width: 30px;
   height: 30px;
   line-height: 30px; }
 
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline, .has-success.radio label, .has-success.checkbox label, .has-success.radio-inline label, .has-success.checkbox-inline label {
   color: #3c763d; }
-.has-success .form-control, .has-success input[type="text"], .has-success input[type="password"], .has-success select, .has-success textarea, .has-success .select2-container .select2-choice, .select2-container .has-success .select2-choice {
+.has-success .form-control, .has-success input[type="text"], .has-success input[type="password"], .has-success textarea, .has-success select, .has-success .select2-container .select2-choice, .select2-container .has-success .select2-choice {
   border-color: #3c763d;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-success .form-control:focus, .has-success input[type="text"]:focus, .has-success input[type="password"]:focus, .has-success select:focus, .has-success textarea:focus, .has-success input[type="text"].picker__input--active, .has-success .select2-container .select2-choice:focus, .select2-container .has-success .select2-choice:focus, .has-success .select2-container.select2-container-active .select2-choice, .select2-container.select2-container-active .has-success .select2-choice {
+  .has-success .form-control:focus, .has-success input[type="text"]:focus, .has-success input[type="password"]:focus, .has-success textarea:focus, .has-success select:focus, .has-success input[type="text"].picker__input--active, .has-success .select2-container .select2-choice:focus, .select2-container .has-success .select2-choice:focus, .has-success .select2-container.select2-container-active .select2-choice, .select2-container.select2-container-active .has-success .select2-choice {
     border-color: #2b542c;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; }
@@ -2250,11 +2269,11 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
 
 .has-warning .help-block, .has-warning .control-label, .has-warning .radio, .has-warning .checkbox, .has-warning .radio-inline, .has-warning .checkbox-inline, .has-warning.radio label, .has-warning.checkbox label, .has-warning.radio-inline label, .has-warning.checkbox-inline label {
   color: #8a6d3b; }
-.has-warning .form-control, .has-warning input[type="text"], .has-warning input[type="password"], .has-warning select, .has-warning textarea, .has-warning .select2-container .select2-choice, .select2-container .has-warning .select2-choice {
+.has-warning .form-control, .has-warning input[type="text"], .has-warning input[type="password"], .has-warning textarea, .has-warning select, .has-warning .select2-container .select2-choice, .select2-container .has-warning .select2-choice {
   border-color: #8a6d3b;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-warning .form-control:focus, .has-warning input[type="text"]:focus, .has-warning input[type="password"]:focus, .has-warning select:focus, .has-warning textarea:focus, .has-warning input[type="text"].picker__input--active, .has-warning .select2-container .select2-choice:focus, .select2-container .has-warning .select2-choice:focus, .has-warning .select2-container.select2-container-active .select2-choice, .select2-container.select2-container-active .has-warning .select2-choice {
+  .has-warning .form-control:focus, .has-warning input[type="text"]:focus, .has-warning input[type="password"]:focus, .has-warning textarea:focus, .has-warning select:focus, .has-warning input[type="text"].picker__input--active, .has-warning .select2-container .select2-choice:focus, .select2-container .has-warning .select2-choice:focus, .has-warning .select2-container.select2-container-active .select2-choice, .select2-container.select2-container-active .has-warning .select2-choice {
     border-color: #66512c;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; }
@@ -2267,11 +2286,11 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
 
 .has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
   color: #a94442; }
-.has-error .form-control, .has-error input[type="text"], .has-error input[type="password"], .has-error select, .has-error textarea, .has-error .select2-container .select2-choice, .select2-container .has-error .select2-choice {
+.has-error .form-control, .has-error input[type="text"], .has-error input[type="password"], .has-error textarea, .has-error select, .has-error .select2-container .select2-choice, .select2-container .has-error .select2-choice {
   border-color: #a94442;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-error .form-control:focus, .has-error input[type="text"]:focus, .has-error input[type="password"]:focus, .has-error select:focus, .has-error textarea:focus, .has-error input[type="text"].picker__input--active, .has-error .select2-container .select2-choice:focus, .select2-container .has-error .select2-choice:focus, .has-error .select2-container.select2-container-active .select2-choice, .select2-container.select2-container-active .has-error .select2-choice {
+  .has-error .form-control:focus, .has-error input[type="text"]:focus, .has-error input[type="password"]:focus, .has-error textarea:focus, .has-error select:focus, .has-error input[type="text"].picker__input--active, .has-error .select2-container .select2-choice:focus, .select2-container .has-error .select2-choice:focus, .has-error .select2-container.select2-container-active .select2-choice, .select2-container.select2-container-active .has-error .select2-choice {
     border-color: #843534;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
@@ -2298,7 +2317,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle; }
-  .form-inline .form-control, .form-inline input[type="text"], .form-inline input[type="password"], .form-inline select, .form-inline textarea, .form-inline .select2-container .select2-choice, .select2-container .form-inline .select2-choice {
+  .form-inline .form-control, .form-inline input[type="text"], .form-inline input[type="password"], .form-inline textarea, .form-inline select, .form-inline .select2-container .select2-choice, .select2-container .form-inline .select2-choice {
     display: inline-block;
     width: auto;
     vertical-align: middle; }
@@ -2307,9 +2326,9 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
   .form-inline .input-group {
     display: inline-table;
     vertical-align: middle; }
-    .form-inline .input-group .input-group-addon, .form-inline .input-group .input-group-btn, .form-inline .input-group .form-control, .form-inline .input-group input[type="text"], .form-inline .input-group input[type="password"], .form-inline .input-group select, .form-inline .input-group textarea, .form-inline .input-group .select2-container .select2-choice, .select2-container .form-inline .input-group .select2-choice {
+    .form-inline .input-group .input-group-addon, .form-inline .input-group .input-group-btn, .form-inline .input-group .form-control, .form-inline .input-group input[type="text"], .form-inline .input-group input[type="password"], .form-inline .input-group textarea, .form-inline .input-group select, .form-inline .input-group .select2-container .select2-choice, .select2-container .form-inline .input-group .select2-choice {
       width: auto; }
-  .form-inline .input-group > .form-control, .form-inline .input-group > input[type="text"], .form-inline .input-group > input[type="password"], .form-inline .input-group > select, .form-inline .input-group > textarea, .form-inline .select2-container .input-group > .select2-choice, .select2-container .form-inline .input-group > .select2-choice {
+  .form-inline .input-group > .form-control, .form-inline .input-group > input[type="text"], .form-inline .input-group > input[type="password"], .form-inline .input-group > textarea, .form-inline .input-group > select, .form-inline .select2-container .input-group > .select2-choice, .select2-container .form-inline .input-group > .select2-choice {
     width: 100%; }
   .form-inline .control-label {
     margin-bottom: 0;
@@ -2551,11 +2570,9 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     opacity: 1; }
 
 .collapse {
-  display: none;
-  visibility: hidden; }
+  display: none; }
   .collapse.in {
-    display: block;
-    visibility: visible; }
+    display: block; }
 
 tr.collapse.in {
   display: table-row; }
@@ -2580,7 +2597,7 @@ tbody.collapse.in {
   height: 0;
   margin-left: 2px;
   vertical-align: middle;
-  border-top: 4px solid;
+  border-top: 4px dashed;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent; }
 
@@ -2842,16 +2859,16 @@ tbody.collapse.in {
     float: none;
     padding-left: 0;
     padding-right: 0; }
-  .input-group .form-control, .input-group input[type="text"], .input-group input[type="password"], .input-group select, .input-group textarea, .input-group .select2-container .select2-choice, .select2-container .input-group .select2-choice {
+  .input-group .form-control, .input-group input[type="text"], .input-group input[type="password"], .input-group textarea, .input-group select, .input-group .select2-container .select2-choice, .select2-container .input-group .select2-choice {
     position: relative;
     z-index: 2;
     float: left;
     width: 100%;
     margin-bottom: 0; }
 
-.input-group-addon, .input-group-btn, .input-group .form-control, .input-group input[type="text"], .input-group input[type="password"], .input-group select, .input-group textarea, .input-group .select2-container .select2-choice, .select2-container .input-group .select2-choice {
+.input-group-addon, .input-group-btn, .input-group .form-control, .input-group input[type="text"], .input-group input[type="password"], .input-group textarea, .input-group select, .input-group .select2-container .select2-choice, .select2-container .input-group .select2-choice {
   display: table-cell; }
-  .input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child), .input-group .form-control:not(:first-child):not(:last-child), .input-group input[type="text"]:not(:first-child):not(:last-child), .input-group input[type="password"]:not(:first-child):not(:last-child), .input-group select:not(:first-child):not(:last-child), .input-group textarea:not(:first-child):not(:last-child), .input-group .select2-container .select2-choice:not(:first-child):not(:last-child), .select2-container .input-group .select2-choice:not(:first-child):not(:last-child) {
+  .input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child), .input-group .form-control:not(:first-child):not(:last-child), .input-group input[type="text"]:not(:first-child):not(:last-child), .input-group input[type="password"]:not(:first-child):not(:last-child), .input-group textarea:not(:first-child):not(:last-child), .input-group select:not(:first-child):not(:last-child), .input-group .select2-container .select2-choice:not(:first-child):not(:last-child), .select2-container .input-group .select2-choice:not(:first-child):not(:last-child) {
     border-radius: 0; }
 
 .input-group-addon, .input-group-btn {
@@ -2880,14 +2897,14 @@ tbody.collapse.in {
   .input-group-addon input[type="radio"], .input-group-addon input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group .form-control:first-child, .input-group input[type="text"]:first-child, .input-group input[type="password"]:first-child, .input-group select:first-child, .input-group textarea:first-child, .input-group .select2-container .select2-choice:first-child, .select2-container .input-group .select2-choice:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+.input-group .form-control:first-child, .input-group input[type="text"]:first-child, .input-group input[type="password"]:first-child, .input-group textarea:first-child, .input-group select:first-child, .input-group .select2-container .select2-choice:first-child, .select2-container .input-group .select2-choice:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
 .input-group-addon:first-child {
   border-right: 0; }
 
-.input-group .form-control:last-child, .input-group input[type="text"]:last-child, .input-group input[type="password"]:last-child, .input-group select:last-child, .input-group textarea:last-child, .input-group .select2-container .select2-choice:last-child, .select2-container .input-group .select2-choice:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+.input-group .form-control:last-child, .input-group input[type="text"]:last-child, .input-group input[type="password"]:last-child, .input-group textarea:last-child, .input-group select:last-child, .input-group .select2-container .select2-choice:last-child, .select2-container .input-group .select2-choice:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3013,11 +3030,9 @@ tbody.collapse.in {
       border-bottom-color: #fff; } }
 
 .tab-content > .tab-pane {
-  display: none;
-  visibility: hidden; }
+  display: none; }
 .tab-content > .active {
-  display: block;
-  visibility: visible; }
+  display: block; }
 
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -3068,7 +3083,6 @@ tbody.collapse.in {
       box-shadow: none; }
       .navbar-collapse.collapse {
         display: block !important;
-        visibility: visible !important;
         height: auto !important;
         padding-bottom: 0;
         overflow: visible !important; }
@@ -3201,7 +3215,7 @@ tbody.collapse.in {
       display: inline-block;
       margin-bottom: 0;
       vertical-align: middle; }
-    .navbar-form .form-control, .navbar-form input[type="text"], .navbar-form input[type="password"], .navbar-form select, .navbar-form textarea, .navbar-form .select2-container .select2-choice, .select2-container .navbar-form .select2-choice {
+    .navbar-form .form-control, .navbar-form input[type="text"], .navbar-form input[type="password"], .navbar-form textarea, .navbar-form select, .navbar-form .select2-container .select2-choice, .select2-container .navbar-form .select2-choice {
       display: inline-block;
       width: auto;
       vertical-align: middle; }
@@ -3210,9 +3224,9 @@ tbody.collapse.in {
     .navbar-form .input-group {
       display: inline-table;
       vertical-align: middle; }
-      .navbar-form .input-group .input-group-addon, .navbar-form .input-group .input-group-btn, .navbar-form .input-group .form-control, .navbar-form .input-group input[type="text"], .navbar-form .input-group input[type="password"], .navbar-form .input-group select, .navbar-form .input-group textarea, .navbar-form .input-group .select2-container .select2-choice, .select2-container .navbar-form .input-group .select2-choice {
+      .navbar-form .input-group .input-group-addon, .navbar-form .input-group .input-group-btn, .navbar-form .input-group .form-control, .navbar-form .input-group input[type="text"], .navbar-form .input-group input[type="password"], .navbar-form .input-group textarea, .navbar-form .input-group select, .navbar-form .input-group .select2-container .select2-choice, .select2-container .navbar-form .input-group .select2-choice {
         width: auto; }
-    .navbar-form .input-group > .form-control, .navbar-form .input-group > input[type="text"], .navbar-form .input-group > input[type="password"], .navbar-form .input-group > select, .navbar-form .input-group > textarea, .navbar-form .select2-container .input-group > .select2-choice, .select2-container .navbar-form .input-group > .select2-choice {
+    .navbar-form .input-group > .form-control, .navbar-form .input-group > input[type="text"], .navbar-form .input-group > input[type="password"], .navbar-form .input-group > textarea, .navbar-form .input-group > select, .navbar-form .select2-container .input-group > .select2-choice, .select2-container .navbar-form .input-group > .select2-choice {
       width: 100%; }
     .navbar-form .control-label {
       margin-bottom: 0;
@@ -3574,7 +3588,7 @@ a.label:hover, a.label:focus {
   .btn .badge {
     position: relative;
     top: -1px; }
-  .btn-xs .badge, .btn-group-xs > .btn .badge {
+  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn .badge {
     top: 0;
     padding: 1px 5px; }
   .list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -4151,10 +4165,12 @@ a.list-group-item-danger {
     height: 100%;
     width: 100%;
     border: 0; }
-  .embed-responsive.embed-responsive-16by9 {
-    padding-bottom: 56.25%; }
-  .embed-responsive.embed-responsive-4by3 {
-    padding-bottom: 75%; }
+
+.embed-responsive-16by9 {
+  padding-bottom: 56.25%; }
+
+.embed-responsive-4by3 {
+  padding-bottom: 75%; }
 
 .well {
   min-height: 20px;
@@ -4211,7 +4227,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 1050;
   -webkit-overflow-scrolling: touch;
   outline: 0; }
   .modal.fade .modal-dialog {
@@ -4250,10 +4266,12 @@ button.close {
   outline: 0; }
 
 .modal-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
+  z-index: 1040;
   background-color: #000; }
   .modal-backdrop.fade {
     opacity: 0;
@@ -4320,7 +4338,6 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  visibility: visible;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
@@ -4724,8 +4741,7 @@ button.close {
   border: 0; }
 
 .hidden {
-  display: none !important;
-  visibility: hidden !important; }
+  display: none !important; }
 
 .affix {
   position: fixed; }
@@ -4916,9 +4932,9 @@ label {
   color: #555;
   user-select: none; }
 
-input[type="text"]:active, input[type="text"]:focus, input[type="password"]:active, input[type="password"]:focus {
+input[type="text"]:active, input[type="text"]:focus, input[type="password"]:active, input[type="password"]:focus, textarea:active, textarea:focus {
   outline: none; }
-input[type="text"].ng-dirty.ng-invalid, .ng-submitted input[type="text"].ng-invalid, input[type="password"].ng-dirty.ng-invalid, .ng-submitted input[type="password"].ng-invalid {
+input[type="text"].ng-dirty.ng-invalid, .ng-submitted input[type="text"].ng-invalid, input[type="password"].ng-dirty.ng-invalid, .ng-submitted input[type="password"].ng-invalid, textarea.ng-dirty.ng-invalid, .ng-submitted textarea.ng-invalid {
   border-color: #c0392b; }
 
 select:active, select:focus {
