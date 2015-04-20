@@ -23,7 +23,7 @@
           <div class="form-block">
             <div pr-input pr-validate="['required']">
               <label>Account Number</label>
-              <input type="text" ng-model="demo.accountNumber">
+              <input type="text" ng-model="demo.accountNumber" pr-focus>
             </div>
 
             <div pr-input pr-validate="['email','required']">
@@ -194,6 +194,7 @@
     <script src="directives/elements.js"></script>
     <script src="directives/input-formatters.js"></script>
     <script src="directives/validation.js"></script>
+    <script src="directives/autofocus.js"></script>
     <script src="filters/formatters.js"></script>
     <!-- endbuild -->
 
