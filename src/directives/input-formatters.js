@@ -17,6 +17,10 @@ function() {
       });
 
       ctrl.$parsers.unshift(function(viewValue) {
+        if (!viewValue) {
+          return null;
+        }
+        
         return Number(viewValue);
       });
     }
