@@ -4949,6 +4949,18 @@ select:active, select:focus {
   cursor: not-allowed;
   color: #bfbfbf; }
 
+input[type=text]:disabled {
+  box-shadow: none; }
+
+.select2-container.select2-container-disabled .select2-choice {
+  box-shadow: none;
+  background-color: #EEE;
+  border-color: #CCC; }
+  .select2-container.select2-container-disabled .select2-choice .select2-arrow {
+    box-shadow: none;
+    background-color: #EEE;
+    border-color: #CCC; }
+
 .form-validation {
   position: absolute;
   color: #c0392b;
