@@ -246,7 +246,26 @@ input[type="text"].picker__input--active {
 	}
 }
 
+//Select2s inside of input groups
+.input-group {
+	.select2-container {
+		.select2-choice {
+			border-radius: 0px 0px 0px 0px;
+		}
+	}
 
+	.select2-container:first-child {
+		.select2-choice {
+			border-radius: 4px 0px 0px 4px;
+		}
+	}
+
+	.select2-container:last-child {
+		.select2-choice {
+			border-radius: 0px 4px 4px 0px;
+		}
+	}
+}
 
 
 

@@ -5059,3 +5059,10 @@ select:active, select:focus {
       border-radius: 0;
       box-shadow: none !important;
       background-image: none !important; }
+
+.input-group .select2-container .select2-choice {
+  border-radius: 0px 0px 0px 0px; }
+.input-group .select2-container:first-child .select2-choice {
+  border-radius: 4px 0px 0px 4px; }
+.input-group .select2-container:last-child .select2-choice {
+  border-radius: 0px 4px 4px 0px; }
