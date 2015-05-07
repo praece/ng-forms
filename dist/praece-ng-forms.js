@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pr.forms', ['ui.select', 'ngMessages']);
+angular.module('pr.forms', ['ngMessages']);
 'use strict';
 
 angular.module('pr.forms').directive('prDatePicker', [
