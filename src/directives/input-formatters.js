@@ -20,8 +20,12 @@ function() {
         if (!viewValue) {
           return null;
         }
+
+        viewValue = viewValue.replace(/[^0-9]/g, "");
+        ctrl.$setViewValue(viewValue);
+        ctrl.$render();
         
-        return Number(viewValue);
+        return viewValue;
       });
     }
   };
