@@ -8,12 +8,12 @@ function() {
     restrict: 'A',
     link: function(scope, element, attr, ctrl) {
 
-      ctrl.$formatters.unshift(function(modelValue) {
+      ctrl.$formatters.push(function(modelValue) {
         if (!modelValue) {
           return null;
         }
 
-        return modelValue.toString();
+        return Number(modelValue);
       });
 
       ctrl.$parsers.unshift(function(viewValue) {

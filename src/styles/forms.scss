@@ -25,7 +25,7 @@ label {
 	user-select: none;
 }
 
-input[type="text"], input[type="password"], textarea {
+input[type="text"], input[type="password"], input[type="number"], textarea {
 	@extend .form-control;
 
 	&:active, &:focus {
