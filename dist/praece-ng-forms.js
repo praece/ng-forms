@@ -155,7 +155,7 @@ function() {
           return null;
         }
 
-        viewValue = viewValue.replace(/[^0-9]/g, "");
+        viewValue = viewValue.replace(/[^0-9.]/g, "");
         ctrl.$setViewValue(viewValue);
         ctrl.$render();
         
