@@ -11,11 +11,11 @@ function() {
       element.keypress(function(event) {
         var character = String.fromCharCode(event.which);
 
-        if (character !== character.replace(/[^0-9.\-]/g, "")) return false;
+        if (character !== character.replace(/[^0-9.\-]/g, "")) event.preventDefault();
       });
 
       ctrl.$formatters.push(function(modelValue) {
-        if (!modelValue) {
+        if (!modelValue && modelValue !== 0) {
           return null;
         }
 
