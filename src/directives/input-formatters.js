@@ -8,6 +8,12 @@ function() {
     restrict: 'A',
     link: function(scope, element, attr, ctrl) {
 
+      element.keypress(function(event) {
+        var character = String.fromCharCode(event.which);
+
+        if (character !== character.replace(/[^0-9.\-]/g, "")) return false;
+      });
+
       ctrl.$formatters.push(function(modelValue) {
         if (!modelValue) {
           return null;
@@ -17,13 +23,17 @@ function() {
       });
 
       ctrl.$parsers.unshift(function(viewValue) {
-        if (!viewValue) {
+        if (!viewValue && viewValue !== 0) {
           return null;
         }
 
-        viewValue = viewValue.replace(/[^0-9.]/g, "");
-        ctrl.$setViewValue(viewValue);
-        ctrl.$render();
+        var newValue = viewValue.replace(/[^0-9.\-]/g, "");
+
+        if (viewValue !== newValue) {
+          viewValue = newValue;
+          ctrl.$setViewValue(viewValue);
+          ctrl.$render();
+        }
         
         return viewValue;
       });
