@@ -328,7 +328,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
           '<div ng-message="phone">Invalid phone number</div>' +
           '<div ng-message="zip">Invalid zip code</div>' +
           '<div ng-message="email">Invalid email address</div>' +
-          '<div ng-message="positive-number">Must be a positive number</div>' +
+          '<div ng-message="positive-number">Must be a positive</div>' +
           '<div ng-message="unique">This {{options.unique.label}} is taken</div>' +
         '</div>';
 
