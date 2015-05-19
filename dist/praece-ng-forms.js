@@ -238,6 +238,18 @@ function($compile, $templateCache, $http, $q, $timeout) {
     });
   };
 
+  validators.positiveNumber = function(scope) {
+    scope.input.$parsers.unshift(function (viewValue) {
+      if (is.empty(viewValue) || (is.number(+viewValue) && +viewValue >= 0)) {
+        scope.input.$setValidity('positive-number', true);
+      } else {
+        scope.input.$setValidity('positive-number', false);
+      }
+
+      return viewValue;
+    });
+  };
+
   validators.required = function(scope, input) {
     function validation(value) {
       var defaults = {required: {disabled: false}};
@@ -316,6 +328,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
           '<div ng-message="phone">Invalid phone number</div>' +
           '<div ng-message="zip">Invalid zip code</div>' +
           '<div ng-message="email">Invalid email address</div>' +
+          '<div ng-message="positive-number">Must be a positive number</div>' +
           '<div ng-message="unique">This {{options.unique.label}} is taken</div>' +
         '</div>';
 

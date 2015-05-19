@@ -21,7 +21,7 @@
         <h2>Contract Details</h2>
         <div class="form-row">
           <div class="form-block">
-            <div pr-input pr-validate="['required']">
+            <div pr-input pr-validate="['required', 'positiveNumber']">
               <label>Account Number</label>
               <input type="number" ng-model="demo.accountNumber" pr-focus pr-number-input>
             </div>

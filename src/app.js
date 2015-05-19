@@ -25,7 +25,6 @@ function($timeout, $scope) {
   demo.startDate = moment().toDate();
   demo.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   demo.time = '0330';
-  demo.accountNumber = '123';
 
   demo.phone = '253-740-8839';
   demo.passwordOptions = {};
