@@ -257,13 +257,8 @@ function($compile, $templateCache, $http, $q, $timeout) {
       var set = is.existy(value) && (is.not.empty(value) || is.date(value));
       var disabled = !!options.required.disabled;
 
-      if (set || disabled) {
-        scope.input.$setValidity('required', true);
-        return value;
-      }
-
-      scope.input.$setValidity('required', false);
-      return null;
+      scope.input.$setValidity('required', set || disabled);
+      return value;
     };
 
     if (scope.options && scope.options.required) {

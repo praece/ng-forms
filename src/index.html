@@ -21,6 +21,16 @@
         <h2>Contract Details</h2>
         <div class="form-row">
           <div class="form-block">
+            <div pr-input pr-validate="['required']">
+              <label>Days</label>
+              <ui-select ng-model="demo.day2" multiple="true" theme="select2">
+                <ui-select-match>{{$item}}</ui-select-match>
+                <ui-select-choices repeat="day as day in demo.days2 | filter:$select.search">
+                  <div>{{day}}</div>
+                </ui-select-choices>
+              </ui-select>
+            </div>
+
             <div pr-input pr-validate="['required', 'positiveNumber']">
               <label>Account Number</label>
               <input type="number" ng-model="demo.accountNumber" pr-focus pr-number-input>
@@ -33,7 +43,7 @@
 
             <div pr-input pr-validate="['required']">
               <label>Client</label>
-              <ui-select ng-model="demo.client" theme="select2" ng-disabled="true">
+              <ui-select ng-model="demo.client" theme="select2">
                 <ui-select-match>{{$select.selected.name}}</ui-select-match>
                 <ui-select-choices repeat="client.id as client in demo.clients | filter:$select.search" ui-disable-choice="client.disabled">
                   <div>{{client.name}}</div>
@@ -69,6 +79,8 @@
                 <input type="text" pr-time-picker ng-model="demo.time">
               </div>
             </div>
+
+            
           </div>
 
 

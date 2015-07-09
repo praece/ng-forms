@@ -172,12 +172,43 @@ input[type="text"].picker__input--active {
 		}
 	}
 
+	&.select2-container-multi {
+		.select2-choices .select2-search-field input {
+			height: 30px;
+		}
+
+		.select2-choices {
+			@extend .form-control;
+			background-image: none;
+			padding: 0;
+		}
+
+		.select2-choices .select2-search-choice {
+			background-image: none;
+	    box-shadow: none;
+	    background-color: #ededed;
+	    color: #333;
+	    border: 0;
+	    border-radius: 12px;
+	    padding: 3px 10px 3px 24px;
+	    margin: 4px 0 4px 5px;
+	    line-height: 18px;
+		}
+
+		.select2-search-choice-close {
+			left: 8px;
+    	top: 6px;
+      width: 12px;
+    	height: 12px;
+		}
+	}
+
 	a {
 		text-decoration: none !important;
 	}
 
 	&.select2-container-active {
-		.select2-choice {
+		.select2-choice, .select2-choices {
 			@extend .form-control:focus;
 		}
 
@@ -187,7 +218,7 @@ input[type="text"].picker__input--active {
 	}
 
 	&.ng-dirty[class*="ng-invalid"], .ng-submitted &[class*="ng-invalid"] {
-		.select2-choice {
+		.select2-choice, .select2-choices {
 			border-color: #c0392b;
 		}
 	}
@@ -199,7 +230,7 @@ input[type="text"].picker__input--active {
 	}
 
 	&.select2-dropdown-open, &.select2-dropdown-open.select2-drop-above {
-		.select2-choice {
+		.select2-choice, .select2-choices {
 			border-bottom-right-radius: 0;
 			border-bottom-left-radius: 0;
 		}

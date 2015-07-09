@@ -28,6 +28,8 @@ function($timeout, $scope) {
 
   demo.phone = '253-740-8839';
   demo.passwordOptions = {};
+  demo.days2 = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  demo.day2 = ['Sunday', 'Tuesday'];
 
   $scope.$watch('demo.phone', function(newValue) {
     demo.passwordOptions.required = {disabled: demo.phone};
