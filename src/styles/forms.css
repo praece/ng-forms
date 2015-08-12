@@ -4934,7 +4934,7 @@ label {
 
 input[type="text"]:active, input[type="text"]:focus, input[type="password"]:active, input[type="password"]:focus, input[type="number"]:active, input[type="number"]:focus, textarea:active, textarea:focus {
   outline: none; }
-input[type="text"].ng-dirty.ng-invalid, .ng-submitted input[type="text"].ng-invalid, input[type="password"].ng-dirty.ng-invalid, .ng-submitted input[type="password"].ng-invalid, input[type="number"].ng-dirty.ng-invalid, .ng-submitted input[type="number"].ng-invalid, textarea.ng-dirty.ng-invalid, .ng-submitted textarea.ng-invalid {
+.ng-submitted input[type="text"].ng-invalid, .ng-submitted input[type="password"].ng-invalid, .ng-submitted input[type="number"].ng-invalid, .ng-submitted textarea.ng-invalid {
   border-color: #c0392b; }
 
 select:active, select:focus {

@@ -32,7 +32,7 @@ input[type="text"], input[type="password"], input[type="number"], textarea {
 		outline: none;
 	}
 
-	&.ng-dirty.ng-invalid, .ng-submitted &.ng-invalid {
+	.ng-submitted &.ng-invalid {
 		border-color: #c0392b;
 	}
 }
