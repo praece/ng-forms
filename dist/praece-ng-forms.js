@@ -390,7 +390,7 @@ function() {
       var period = hours < 12 ? 'AM' : 'PM';
       hours = hours < 13 ? hours : hours - 12;
 
-      time = hours + ':' + _.padRight(minutes, 2, '0') + ' ' + period;
+      time = hours + ':' + _.padLeft(minutes, 2, '0') + ' ' + period;
     }
 
     return time;
