@@ -81,36 +81,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
   };
 
   validators.unique = function(scope) {
-    scope.input.$asyncValidators.unique = function(modelValue, viewValue) {
-      var params = {};
-      var deferred = $q.defer();
-
-      params[scope.options.unique.property] = viewValue;
-
-      if (!viewValue) {
-        deferred.resolve();
-      } else {
-        $http.get(scope.options.unique.url, {params: params})
-          .success(function(data, status) {
-            if (data.length > 0) {
-              if (data[0].id === scope.options.unique.id) {
-                deferred.resolve();
-              }
-              else {
-                deferred.reject();
-              }
-            }
-            else {
-              deferred.resolve();
-            }
-          })
-          .error(function(data, status) {
-            console.log(status);
-          });
-      }
-
-      return deferred.promise;
-    }
+    scope.input.$asyncValidators.unique = scope.options.unique.validationFunction;
   };
 
   return {
