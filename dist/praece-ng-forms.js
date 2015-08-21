@@ -330,6 +330,22 @@ function($timeout) {
     }
 	};
 }]);
+
+
+angular.module('pr.forms').directive('selectOnClick', [
+  '$window', 
+function ($window) {
+  return {
+    restrict: 'A',
+    link: function (scope, element, attrs) {
+      element.on('click', function () {
+        if (!$window.getSelection().toString()) {
+          this.select();
+        }
+      });
+    }
+  };
+}]);
 'use strict';
 
 angular.module('pr.forms').filter('prPhone', [
