@@ -22,7 +22,9 @@ function ($window) {
     link: function (scope, element, attrs) {
       element.on('click', function () {
         if (!$window.getSelection().toString()) {
-          this.select();
+          //Mobile Safari does not support this.select(), must use
+          //setSelectionRange
+          this.setSelectionRange(0, this.value.length);
         }
       });
     }
