@@ -112,6 +112,7 @@ function($compile, $templateCache, $http, $q, $timeout) {
           '</svg>' +
           '<div ng-message="required">Required</div>' +
           '<div ng-message="phone">Invalid phone number</div>' +
+          '<div ng-message="fax">Invalid fax number</div>' +
           '<div ng-message="zip">Invalid zip code</div>' +
           '<div ng-message="email">Invalid email address</div>' +
           '<div ng-message="positive-number">Must be positive</div>' +
