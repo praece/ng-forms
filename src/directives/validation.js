@@ -22,6 +22,18 @@ function($compile, $templateCache, $http, $q, $timeout) {
     });
   };
 
+  validators.fax = function(scope) {
+    scope.input.$parsers.unshift(function (viewValue) {
+      if (is.empty(viewValue) || is.nanpPhone(viewValue)) {
+        scope.input.$setValidity('fax', true);
+      } else {
+        scope.input.$setValidity('fax', false);
+      }
+
+      return viewValue;
+    });
+  };
+
   validators.email = function(scope) {
     scope.input.$parsers.unshift(function (viewValue) {
       if (is.empty(viewValue) || is.email(viewValue)) {
