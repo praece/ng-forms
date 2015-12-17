@@ -262,6 +262,18 @@ function($compile, $templateCache, $http, $q, $timeout) {
     });
   };
 
+  validators.integer = function(scope) {
+    scope.input.$parsers.unshift(function (viewValue) {
+      if (is.empty(viewValue) || is.integer(Number(viewValue))) {
+        scope.input.$setValidity('integer', true);
+      } else {
+        scope.input.$setValidity('integer', false);
+      }
+
+      return viewValue;
+    });
+  };
+
   validators.required = function(scope, input) {
     function validation(value) {
       var defaults = {required: {disabled: false}};
